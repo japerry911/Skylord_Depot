@@ -6,7 +6,7 @@ import Contact from '../pages/Contact';
 import Shop from '../pages/Shop';
 import SignIn from '../pages/SignIn';
 
-const Routes = () => {
+export default () => {
     return (
         <Switch>
             <Route 
@@ -41,5 +41,3 @@ const Routes = () => {
         </Switch>
     );
 };
-
-export default Routes;
