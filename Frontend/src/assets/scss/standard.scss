@@ -1,0 +1,15 @@
+html, body, .App, #root {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Avenir';
+    padding: 0;
+    margin: 0;
+}
+
+.spinner-div {
+    display: flex;
+    justify-content: center;
+}

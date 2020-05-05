@@ -2,9 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import Routes from './Router/Routes';
 
-function App() {
+const App = () => {
   return (
-    <div>
+    <div className='App'>
       <Routes />
     </div>
   );
