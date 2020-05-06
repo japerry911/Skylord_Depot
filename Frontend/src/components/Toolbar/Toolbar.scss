@@ -1,8 +1,8 @@
 .toolbar {
     width: 100%;
     position: fixed;
-    background-color: #521751;
-    height: 56px;
+    background-color: #F67743;
+    height: 80px;
     top: 0;
     left: 0;
 
@@ -14,11 +14,20 @@
 
         .toolbar-logo {
             margin-left: 1rem;
+            height: 100%;
     
             a {
-                color: #fff;
+                color: #F9F6F6;
                 text-decoration: none;
                 font-size: 1.5rem;
+                height: 100%;
+                display: flex;
+                align-items: center;
+
+                img {
+                    height: auto;
+                    width: 12%;
+                }
             }
         }
 
@@ -36,13 +45,13 @@
                 padding: 0 0.5rem;
 
                 a {
-                    color: #fff;
+                    color: #F9F6F6;
                     text-decoration: none;
                 }
             }
 
             a:hover, a:active {
-                color: #fa923f;
+                color: #FCB294;
             }
         }
     }
