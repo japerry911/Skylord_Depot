@@ -1,0 +1,46 @@
+div.main-div-home {
+    background: url('https://skylord-depot.s3.us-east-2.amazonaws.com/Home/golden-retreiver-usa-landscape.jpeg') center center/cover;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .title-content-div {
+        height: 70%;
+        width: 90%;
+        margin-left: auto;
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+
+        .logo {
+            height: auto;
+            width: 43%;
+        }
+
+        a {
+            width: 43%;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+
+            button {
+                height: 6rem;
+                width: 15rem;
+                background-color: $accentLightOrange;
+                border: 1pt solid $primaryOrange;
+                font-family: 'Avenir-Medium';
+                font-size: 1.25rem;
+                border-radius: 12pt;
+                box-shadow: 1pt 1pt $primaryOrange;
+                transition: .35s ease-in;
+           }
+
+           button:hover {
+                background-color: $accentLightGrayText;
+                color: $primaryOrange;
+                cursor: pointer;
+                transition: .35s ease-out;
+           }
+        }
+    }
+}

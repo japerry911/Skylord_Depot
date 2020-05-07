@@ -1,5 +1,10 @@
-html, body, .App, #root {
+html, .App, #root {
     height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
 }
 
 * {
@@ -15,5 +20,6 @@ html, body, .App, #root {
 }
 
 .main-page-content {
-    margin-top: 90px;
+    margin-top: 80px;
+    height: 100%;
 }
