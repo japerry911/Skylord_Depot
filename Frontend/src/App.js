@@ -1,8 +1,8 @@
 import React, { useState, Fragment } from 'react';
-import Routes from './Router/routes';
-import Toolbar from './components/Toolbar/Toolbar';
-import SideDrawer from './components/SideDrawer/SideDrawer';
-import Backdrop from './components/Backdrop/Backdrop';
+import Routes from './Router/Routes';
+import Toolbar from './components/Toolbar';
+import SideDrawer from './components/SideDrawer';
+import Backdrop from './components/Backdrop';
 
 const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);

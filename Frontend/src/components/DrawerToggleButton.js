@@ -1,5 +1,4 @@
 import React from 'react';
-import './DrawerToggleButton.scss';
 
 const DrawerToggleButton = ({ click }) => (
     <button className='toggle-btn' onClick={click} >

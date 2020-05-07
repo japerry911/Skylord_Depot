@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Toolbar.scss';
-import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
+import DrawerToggleButton from './DrawerToggleButton';
 
 const Toolbar = ({ drawerClickHandler }) => (
     <header className='toolbar'>
