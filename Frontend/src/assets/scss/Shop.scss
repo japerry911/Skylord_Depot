@@ -1,5 +1,5 @@
 div.main-div-shop {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
     url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/andre-boysen-GWWHCY3K-U0-unsplash.jpg');
     background-size: cover;
     background-position: center;
@@ -21,13 +21,12 @@ div.main-div-shop {
             text-decoration: none;
             display: flex;
             align-items: center;
-            justify-content: center;;
+            justify-content: center;
         }
 
         h6 {
             color: #fff;
             font-size: 3rem;
-            text-align: center
         }
 
         .solo-tile {
@@ -43,6 +42,13 @@ div.main-div-shop {
             justify-content: center;
             align-items: flex-end;
             border: 1pt solid $accentLightWhite;
+            transition: .5s ease-in;
+        }
+
+        .solo-tile:hover {
+            transform: scale(1.05);
+            transition: .5s ease-out;
+            opacity: 1.0;
         }
 
         .dual-tiles {
@@ -58,12 +64,20 @@ div.main-div-shop {
                 width: 45%;
                 height: 100%;
                 border: 1pt solid $accentLightWhite;
+                transition: .5s ease-in;
+            }
+
+            div:hover {
+                transform: scale(1.05);
+                transition: .5s ease-out;
+                opacity: 1.0;
             }
 
             .toys-div {
                 background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/sarah-brown-ubRoy09Y9Gw-unsplash.jpg');
                 background-size: cover;
+                background-position: center;
                 opacity: .90;
             }
 
@@ -71,6 +85,7 @@ div.main-div-shop {
                 background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/marek-szturc-GokBcmdOI6I-unsplash.jpg');
                 background-size: cover;
+                background-position: center;
                 opacity: .90;
             }
         }
