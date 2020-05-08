@@ -1,0 +1,78 @@
+div.main-div-shop {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
+    url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/andre-boysen-GWWHCY3K-U0-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+    .tiles-div {
+        display: flex;
+        flex-direction: column;
+        padding-top: 3rem;
+        height: 90%;
+        width: 70%;
+        justify-content: space-between;
+
+        a {
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;;
+        }
+
+        h6 {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center
+        }
+
+        .solo-tile {
+            align-self: center;
+            height: 45%;
+            width: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/jamie-street-uNNCs5kL70Q-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: .90;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            border: 1pt solid $accentLightWhite;
+        }
+
+        .dual-tiles {
+            height: 35%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 45%;
+                height: 100%;
+                border: 1pt solid $accentLightWhite;
+            }
+
+            .toys-div {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/sarah-brown-ubRoy09Y9Gw-unsplash.jpg');
+                background-size: cover;
+                opacity: .90;
+            }
+
+            .foods-div {
+                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/marek-szturc-GokBcmdOI6I-unsplash.jpg');
+                background-size: cover;
+                opacity: .90;
+            }
+        }
+    }
+}

@@ -22,7 +22,7 @@ const Footer  = () => (
             <div className='pages-div'>
                 <ul>
                     <li><Link to='/'>About</Link></li>
-                    <li><Link to='/'>Shop</Link></li>
+                    <li><Link to='/shop'>Shop</Link></li>
                     <li><Link to='/'>Contact</Link></li>
                     <li><Link to='/'>Sign In</Link></li>
                 </ul>
