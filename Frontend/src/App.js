@@ -3,6 +3,7 @@ import Routes from './Router/Routes';
 import Toolbar from './components/Toolbar';
 import SideDrawer from './components/SideDrawer';
 import Backdrop from './components/Backdrop';
+import Footer from './components/Footer';
 
 const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -29,6 +30,7 @@ const App = () => {
       <main className='main-page-content'>
         <Routes />
       </main>
+      <Footer />
     </div>
   );
 }

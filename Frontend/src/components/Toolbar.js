@@ -7,12 +7,12 @@ const Toolbar = ({ drawerClickHandler }) => (
         <nav className='toolbar-navigation'>
             <div className='mobile-btn'><DrawerToggleButton click={drawerClickHandler} /></div>
             <div className='toolbar-logo'>
-                <a href='/'>
+                <Link to='/'>
                     <img
                         alt='Skylord Depot Logo'
                         src='https://skylord-depot.s3.us-east-2.amazonaws.com/Logos/white_logo_transparent_background.png'
                     />
-                </a>
+                </Link>
             </div>
             <div className='spacer' />
             <div className='toolbar-navigation-items'>
