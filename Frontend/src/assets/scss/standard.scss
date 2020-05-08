@@ -1,12 +1,6 @@
-body, .App, #root {
+body, .App, #root, html {
     height: 100%;
-    width:100%;
-}
-
-html {
-    height: 100%;
-    width: 100%;
-    overflow: auto;
+    max-width: 100%;
 }
 
 * {
@@ -22,6 +16,6 @@ html {
 }
 
 .main-page-content {
-    margin-top: 80px;
     min-height: 100%;
+    display: flex;
 }

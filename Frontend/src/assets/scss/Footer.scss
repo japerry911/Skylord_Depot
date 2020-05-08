@@ -1,8 +1,10 @@
 footer {
     background-color: $primaryOrange;
-    min-height: 10%;
+    min-height: 120px;
+    width: 100%;
 
     .footer-div {
+        width: 100%;
         display: flex;
         
         .follow-us-div {
@@ -24,11 +26,11 @@ footer {
 
             a {
                 height: auto;
-                max-width: 300px;
+                width: 50%;
 
                 img {
                     height: auto;
-                    max-width: 300px;
+                    width: 100%;
                 }
             }
         }  
@@ -70,6 +72,39 @@ footer {
             a:hover, a:active {
                 background-color: $accentLightGrayText;
                 color: $primaryOrange;
+            }
+        }
+    }
+}
+
+/*
+-Media Queries-
+*/
+@media screen and (min-width: 650px) and (max-width: 768px) {
+    footer {
+        .footer-div {
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0;
+
+            .logo-div {
+                a {
+                    width: 30%;
+                }
+            }
+
+            .pages-div {
+                width: 100%;
+
+                ul {
+
+                    li {
+                        
+                        a {
+                            padding: 1rem 0;
+                        }
+                    }
+                }
             }
         }
     }
