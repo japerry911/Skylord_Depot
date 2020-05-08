@@ -1,8 +1,12 @@
 div.main-div-home {
-    background: url('https://skylord-depot.s3.us-east-2.amazonaws.com/Home/golden-retreiver-usa-landscape.jpeg') center center/cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://skylord-depot.s3.us-east-2.amazonaws.com/Home/golden-retreiver-usa-landscape.jpeg');
+    background-position: center;
+    background-size: cover;
     height: 100%;
     display: flex;
     align-items: center;
+    height: 1000px;
 
     .title-content-div {
         height: 70%;
