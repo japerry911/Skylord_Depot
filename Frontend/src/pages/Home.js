@@ -10,7 +10,7 @@ const Home = () => {
                     alt='Skylord Depot Logo'
                     className='logo'
                 />
-                <Link to='/'><button>Checkout the Store</button></Link>
+                <Link to='/shop'><button>Checkout the Store</button></Link>
             </div>            
         </div>
     );

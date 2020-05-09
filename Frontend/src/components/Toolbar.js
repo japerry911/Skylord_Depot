@@ -17,7 +17,7 @@ const Toolbar = ({ drawerClickHandler }) => (
             <div className='spacer' />
             <div className='toolbar-navigation-items'>
                 <ul>
-                    <li><Link to='/'>About</Link></li>
+                    <li><Link to='/about'>About</Link></li>
                     <li><Link to='/shop'>Shop</Link></li>
                     <li><Link to='/'>Contact</Link></li>
                     <li><Link to='/'>Sign In</Link></li>
