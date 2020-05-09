@@ -1,5 +1,5 @@
 div.main-div-shop {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/andre-boysen-GWWHCY3K-U0-unsplash.jpg');
     background-size: cover;
     background-position: center;
@@ -33,11 +33,11 @@ div.main-div-shop {
             align-self: center;
             height: 45%;
             width: 100%;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
             url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/jamie-street-uNNCs5kL70Q-unsplash.jpg');
             background-size: cover;
             background-position: center;
-            opacity: .90;
+            opacity: .75;
             display: flex;
             justify-content: center;
             align-items: flex-end;
@@ -74,19 +74,19 @@ div.main-div-shop {
             }
 
             .toys-div {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
                 url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/sarah-brown-ubRoy09Y9Gw-unsplash.jpg');
                 background-size: cover;
                 background-position: center;
-                opacity: .90;
+                opacity: .75;
             }
 
             .foods-div {
-                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
                 url('https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/marek-szturc-GokBcmdOI6I-unsplash.jpg');
                 background-size: cover;
                 background-position: center;
-                opacity: .90;
+                opacity: .75;
             }
         }
     }
