@@ -1,5 +1,6 @@
 Good.destroy_all
 
+# Food
 Good.create(
     name: 'Blue Buffalo Life Protection Formula Adult Chicken & Brown Rice Recipe Dry Dog Food',
     description: 'Great Dog Food that is Skylord-Approved. This food is made with Chicken and Brown Rice. Enjoy!',
@@ -42,3 +43,45 @@ Good.create(
     product_type: 'Food'
 )
 
+# Toys
+Good.create(
+    name: 'KONG Classic Dog Toy',
+    description: 'Everyone Loves Kong! Skylord-Approved toy that will not break the bank. Enjoy!',
+    price: 12.99,
+    card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/46191-DEFAULT-l.jpg',
+    detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/images.jpeg',
+    detail_image2: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/HTB1cLo3cAxz61VjSZFrq6xeLFXad.webp',
+    product_type: 'Toy'
+)
+
+Good.create(
+    name: 'Dog Toy Rope',
+    description: 'Every dog loves their rope! They will put up a good challenge in tug-a-war with this Skylord-Approved rope. Enjoy!',
+    price: 9.50,
+    card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/71bi%2Bf3pa9L._AC_SX425_.jpg',
+    detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/61aDgnzssFL._AC_SL1001_.jpg',
+    detail_image2: nil,
+    product_type: 'Toy'
+)
+
+Good.create(
+    name: 'Mr. Bear Dog Toy',
+    description: 'What dog does not want to battle and tear up Mr.Bear? This Skylord-Approved one-of-a-kind Mr.Bear is one that your dog will love for years. Enjoy!',
+    price: 17.99,
+    card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/147061_Main._AC_SL1500_V1539205713_.jpg',
+    detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/1586211-center-1.webp',
+    detail_image2: nil,
+    product_type: 'Toy'
+)
+
+Good.create(
+    name: 'Skylord-Approved Tennis Ball',
+    description: 'This Skylord-Approved Tennis Ball will blow your dogs mind. It has been created by hand and is GIANT! Enjoy!',
+    price: 39.99,
+    card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/61YFAdLoQdL._AC_SX425_.jpg',
+    detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/61rRJN7MMuL._AC_UX569_.jpg',
+    detail_image2: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/giant-tennis-ball-300x250.jpg',
+    product_type: 'Toy'
+)
+
+# Treats
