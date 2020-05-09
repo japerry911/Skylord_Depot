@@ -85,3 +85,42 @@ Good.create(
 )
 
 # Treats
+Good.create(
+    name: 'Skylord Giant Cake',
+    description: 'This dog cake will surprise and blow any dog away. It is HUGE and it is grainfree and very healthy and tasty. Enjoy the masterpiece of Skylord!',
+    price: 25.99,
+    card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/Pup-Bday51.jpg',
+    detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/18a086f2004b22099b513083d8bf5824.jpg',
+    detail_image2: nil,
+    product_type: 'Treat'
+)
+
+Good.create(
+    name: 'Skylord Crazy Carrot Cake',
+    description: 'This Crazy Carrot Cake will blow all carrot-loving dogs away. It is made-to-order and is barknominal. Enjoy!',
+    price: 18.99,
+    card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/unnamed.jpg',
+    detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/00764a34-dogcarrotcakepng',
+    detail_image2: nil,
+    product_type: 'Treat'
+)
+
+Good.create(
+    name: 'Skylord-Approved Doughnuts',
+    description: 'Are you barking for doughnuts? If so you are in the right place. Come enjoy some Skylord-Approved Doughnuts!',
+    price: 11.99,
+    card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/finished-dog-donuts-square.jpg',
+    detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/tumblr_p9oc7bShgL1xnqe5bo7_500.jpg',
+    detail_image2: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/tumblr_static_tumblr_static_6n6npms2m884kogswskgkgowc_1280.jpg',
+    product_type: 'Treat'
+)
+
+Good.create(
+    name: 'Skylord-Approved Giant Bones',
+    description: "Let's be real... Your dog is going to take this bone and bury it and keep it forever. Every dog loves the Skylord-Approved Giant Bones!",
+    price: 21.26,
+    card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/mammoth-the-biggest-dog-bones-by-pawstruck-on-pawstruckcom-17185451.jpg',
+    detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/540747396_344cde9fda_o-960x540.jpg',
+    detail_image2: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/download+(1).jpeg',
+    product_type: 'Treat'
+)
