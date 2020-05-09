@@ -24,9 +24,17 @@ div.main-about-div {
             font-family: 'Avenir-Medium';
         }
 
-        img {
+        .img-div {
+            display: flex;
+            justify-content: center;
+            width: 100%;
             height: auto;
-            width: 60%;
+            padding-top: 1rem;
+
+            img {
+                height: auto;
+                width: 60%;
+            }
         }
     }
 }

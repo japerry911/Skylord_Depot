@@ -14,10 +14,12 @@ const About = () => {
                     love, community, and, once again, good tasting treats! Please feel free to contact us to learn more, we would love to hear from you. In the mean time
                     please enjoy some treats from Skylord and Jack! Happy Treat-Eating!
                 </p>
-                <img
-                    alt='Skylord Depot Logo'
-                    src='https://skylord-depot.s3.us-east-2.amazonaws.com/Logos/white_logo_transparent_background.png'
-                />
+                <div className='img-div'>
+                    <img
+                        alt='Skylord Depot Logo'
+                        src='https://skylord-depot.s3.us-east-2.amazonaws.com/Logos/white_logo_transparent_background.png'
+                    />
+                </div>
             </div>
         </div>
     );
