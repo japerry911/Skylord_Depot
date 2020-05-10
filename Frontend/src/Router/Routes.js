@@ -8,6 +8,7 @@ import SignIn from '../pages/SignIn';
 import Treats from '../pages/Treats';
 import Toys from '../pages/Toys';
 import Food from '../pages/Food';
+import ShowPage from '../pages/ShowPage';
 
 export default () => {
     return (
@@ -58,6 +59,12 @@ export default () => {
                 exact
                 path='/shop/food'
                 component={Food}
+            />
+
+            <Route
+                exact
+                path='/shop/(treats|toys|food)/:id'
+                component={ShowPage}
             />
         </Switch>
     );

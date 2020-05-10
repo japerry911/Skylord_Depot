@@ -19,7 +19,9 @@ const App = () => {
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/sarah-brown-ubRoy09Y9Gw-unsplash.jpg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/marek-szturc-GokBcmdOI6I-unsplash.jpg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/About/john-salzarulo-b1ABAIbQLOQ-unsplash.jpg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/christian-bowen-OYUzC-h1glg-unsplash.jpg'
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/christian-bowen-OYUzC-h1glg-unsplash.jpg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Food/photo-1585846888147-3fe14c130048.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/photo-1576686271442-c10befe0b77c.jpeg'
       ];
 
       cacheImages(imgs);
