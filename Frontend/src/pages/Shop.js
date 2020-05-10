@@ -6,7 +6,7 @@ const Shop = () => {
         <div className='main-div-shop'>
             <div className='tiles-div'>
                 <div className='solo-tile'>
-                    <Link to='/'>
+                    <Link to='/shop/treats'>
                         <h6>Gourmet Treats</h6>
                     </Link>
                 </div>

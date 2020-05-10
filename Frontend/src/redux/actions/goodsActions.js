@@ -20,6 +20,13 @@ export const successGetGoods = payload => {
     };
 };
 
-export const getGoods = dispatch => {
-    return dispatch => {};
+export const getGoods = () => {
+    return dispatch => {
+        dispatch(pendingGoods());
+
+        return railsServer.get('/goods').then(
+                response => dispatch(successGetGoods(response.data)),
+                error => dispatch(errorGoods(error))
+        );
+    };
 };

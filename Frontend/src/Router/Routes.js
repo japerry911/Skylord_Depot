@@ -5,6 +5,7 @@ import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Shop from '../pages/Shop';
 import SignIn from '../pages/SignIn';
+import Treats from '../pages/Treats';
 
 export default () => {
     return (
@@ -37,6 +38,12 @@ export default () => {
                 exact 
                 path='/sign-in'
                 component={SignIn}
+            />
+
+            <Route
+                exact
+                path='/shop/treats'
+                component={Treats}
             />
         </Switch>
     );
