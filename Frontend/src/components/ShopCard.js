@@ -1,17 +1,17 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-const ShopCard = ({ treat, history }) => {
+const ShopCard = ({ item, history, type }) => {
     return (
-        <div className='card-div' onClick={() => history.push(`/shop/treats/${treat.id}`)}>
+        <div className='card-div' onClick={() => history.push(`/shop/${type}/${item.id}`)}>
             <img
-                src={treat.card_image}
+                src={item.card_image}
                 alt='Card Main'
                 className='card-main-img'
             />
-            <h6 className='item-header-h6'>{treat.name}</h6>
-            <p className='card-description'>{treat.description}</p>
-            <p className='card-price'>${treat.price}</p>
+            <h6 className='item-header-h6'>{item.name}</h6>
+            <p className='card-description'>{item.description}</p>
+            <p className='card-price'>${item.price}</p>
         </div>
     );
 };

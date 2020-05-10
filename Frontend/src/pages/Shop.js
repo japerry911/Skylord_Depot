@@ -12,7 +12,7 @@ const Shop = () => {
                 </div>
                 <div className='dual-tiles'>
                     <div className='toys-div'>
-                        <Link to='/'>
+                        <Link to='/shop/toys'>
                             <h6>Toys</h6>
                         </Link>
                     </div>

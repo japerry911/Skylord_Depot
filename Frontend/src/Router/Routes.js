@@ -6,6 +6,7 @@ import Contact from '../pages/Contact';
 import Shop from '../pages/Shop';
 import SignIn from '../pages/SignIn';
 import Treats from '../pages/Treats';
+import Toys from '../pages/Toys';
 
 export default () => {
     return (
@@ -44,6 +45,12 @@ export default () => {
                 exact
                 path='/shop/treats'
                 component={Treats}
+            />
+
+            <Route
+                exact
+                path='/shop/toys'
+                component={Toys}
             />
         </Switch>
     );

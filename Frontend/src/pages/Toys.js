@@ -5,10 +5,10 @@ import Spinner from '../components/Spinner';
 import ShopCard from '../components/ShopCard';
 import HeroHeader from '../components/HeroHeader';
 
-const Treats = () => {
+const Toys = () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.goods.loading);
-    const treats = useSelector(state => state.goods.treats);
+    const toys = useSelector(state => state.goods.toys);
 
     useEffect(() => {
         dispatch(getGoods());
@@ -24,16 +24,16 @@ const Treats = () => {
             :
             <Fragment>
                 <HeroHeader
-                    headerText='TREATS'
-                    imageUrl='https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/christian-bowen-OYUzC-h1glg-unsplash.jpg'
+                    headerText='TOYS'
+                    imageUrl='https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/photo-1576686271442-c10befe0b77c.jpeg'
                 />
                 <div className='cards-div'>
-                    {treats.map(treat => {
+                    {toys.map(toy => {
                         return (
                             <ShopCard
-                                key={treat.id}
-                                item={treat}
-                                type='treats'
+                                key={toy.id}
+                                item={toy}
+                                type='toys'
                             />
                         );
                     })}
@@ -43,4 +43,4 @@ const Treats = () => {
     );
 };
 
-export default Treats;
+export default Toys;
