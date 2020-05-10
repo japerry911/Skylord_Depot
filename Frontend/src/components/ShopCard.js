@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-const ShopCard = ({ treat }) => {
+const ShopCard = ({ treat, history }) => {
     return (
-        <div className='card-div'>
+        <div className='card-div' onClick={() => history.push(`/shop/treats/${treat.id}`)}>
             <img
                 src={treat.card_image}
                 alt='Card Main'
@@ -12,9 +12,8 @@ const ShopCard = ({ treat }) => {
             <h6 className='item-header-h6'>{treat.name}</h6>
             <p className='card-description'>{treat.description}</p>
             <p className='card-price'>${treat.price}</p>
-            <Link to='/shop/treats'>See more...</Link>
         </div>
     );
 };
 
-export default ShopCard;
+export default withRouter(ShopCard);

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getGoods } from '../redux/actions/goodsActions';
 import Spinner from '../components/Spinner';
 import ShopCard from '../components/ShopCard';
+import HeroHeader from '../components/HeroHeader';
 
 const Treats = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,10 @@ const Treats = () => {
             </div>
             :
             <Fragment>
-                <h1 className='page-header-h1'>Treats Page</h1>
+                <HeroHeader
+                    headerText='TREATS'
+                    imageUrl='https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/christian-bowen-OYUzC-h1glg-unsplash.jpg'
+                />
                 <div className='cards-div'>
                     {treats.map(treat => {
                         return (

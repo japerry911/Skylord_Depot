@@ -1,17 +1,10 @@
 div.main-div-treats {
-    background-color: $accentLightWhite;
+    background-color: $accentLightOrange;
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
-
-    .page-header-h1 {
-        font-size: 3rem;
-        font-family: 'Avenir-Medium';
-        color: $primaryOrange;
-        padding-bottom: 3rem;
-    } 
-
+    
     .cards-div {
         display: flex;
         flex-wrap: wrap;
@@ -28,8 +21,10 @@ div.main-div-treats {
         height: 400px;
         padding: 2rem;
         margin: 1rem;
-        background-color: $accentLightGray;
+        background-color: $accentLightWhite;
         border-radius: 12pt;
+        cursor: pointer;
+        border: 1pt solid $primaryOrange;
 
         .card-main-img {
             width: 30%;
@@ -47,4 +42,8 @@ div.main-div-treats {
             font-weight: bold;
         }
     }
+
+    .card-div:hover {
+        opacity: 0.5;
+    }   
 }
