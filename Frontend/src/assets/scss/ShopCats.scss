@@ -1,0 +1,49 @@
+div.main-div-shop-cat {
+    background-color: $accentLightOrange;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    
+    .cards-div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+    }
+
+    .card-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        min-height: 500px;
+        padding: 2rem;
+        margin: 1rem;
+        background-color: $accentLightWhite;
+        border-radius: 12pt;
+        cursor: pointer;
+        border: 1pt solid $primaryOrange;
+
+        .card-main-img {
+            width: 30%;
+            height: auto;
+            border-radius: 12pt;
+        }
+
+        .item-header-h6 {
+            font-size: 1.25rem;
+            font-family: 'Avenir-Medium'
+        }
+
+        .card-price {
+            font-family: 'Avenir-Medium';
+            font-weight: bold;
+        }
+    }
+
+    .card-div:hover {
+        opacity: 0.5;
+    }   
+}

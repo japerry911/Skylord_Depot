@@ -18,7 +18,8 @@ const App = () => {
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/jamie-street-uNNCs5kL70Q-unsplash.jpg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/sarah-brown-ubRoy09Y9Gw-unsplash.jpg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/marek-szturc-GokBcmdOI6I-unsplash.jpg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/About/john-salzarulo-b1ABAIbQLOQ-unsplash.jpg'
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/About/john-salzarulo-b1ABAIbQLOQ-unsplash.jpg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/christian-bowen-OYUzC-h1glg-unsplash.jpg'
       ];
 
       cacheImages(imgs);
@@ -35,7 +36,7 @@ const App = () => {
         });
       });
 
-      setTimeout(() => setIsLoading(false), 2000);
+      setTimeout(() => setIsLoading(false), 1000);
   };
 
   const drawerClickHandler = () => {
@@ -50,7 +51,7 @@ const App = () => {
     <div className='App'>
       {isLoading
       ?
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div className='spinner-div'>
         <Spinner />
       </div>
       :

@@ -6,19 +6,19 @@ const Shop = () => {
         <div className='main-div-shop'>
             <div className='tiles-div'>
                 <div className='solo-tile'>
-                    <Link to='/'>
+                    <Link to='/shop/treats'>
                         <h6>Gourmet Treats</h6>
                     </Link>
                 </div>
                 <div className='dual-tiles'>
                     <div className='toys-div'>
-                        <Link to='/'>
+                        <Link to='/shop/toys'>
                             <h6>Toys</h6>
                         </Link>
                     </div>
                     <div className='foods-div'>
-                        <Link to='/'>
-                            <h6>Foods</h6>
+                        <Link to='/shop/food'>
+                            <h6>Food</h6>
                         </Link>
                     </div>
                 </div>

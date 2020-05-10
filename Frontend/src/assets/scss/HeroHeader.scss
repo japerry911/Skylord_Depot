@@ -1,0 +1,14 @@
+div.hero-header-main-div {
+    height: 30rem;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+
+    .hero-header-text-h6 {
+        font-family: 'Avenir-Medium';
+        color: $accentLightWhite;
+        font-size: 5rem;
+        margin-left: 5rem;
+    }
+}
