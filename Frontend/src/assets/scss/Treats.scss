@@ -1,0 +1,50 @@
+div.main-div-treats {
+    background-color: $accentLightWhite;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .page-header-h1 {
+        font-size: 3rem;
+        font-family: 'Avenir-Medium';
+        color: $primaryOrange;
+        padding-bottom: 3rem;
+    } 
+
+    .cards-div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+    }
+
+    .card-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 400px;
+        padding: 2rem;
+        margin: 1rem;
+        background-color: $accentLightGray;
+        border-radius: 12pt;
+
+        .card-main-img {
+            width: 30%;
+            height: auto;
+            border-radius: 12pt;
+        }
+
+        .item-header-h6 {
+            font-size: 1.25rem;
+            font-family: 'Avenir-Medium'
+        }
+
+        .card-price {
+            font-family: 'Avenir-Medium';
+            font-weight: bold;
+        }
+    }
+}

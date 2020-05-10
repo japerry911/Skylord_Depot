@@ -1,4 +1,3 @@
-Good.destroy_all
 
 # Food
 Good.create(

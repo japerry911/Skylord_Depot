@@ -50,7 +50,7 @@ const App = () => {
     <div className='App'>
       {isLoading
       ?
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div className='spinner-div'>
         <Spinner />
       </div>
       :
