@@ -36,7 +36,7 @@ Good.create(
     name: 'Blue Buffalo Homestyle Recipe Chicken Dinner with Garden Vegetables & Brown Rice Canned Dog Food, 12.5-oz, case of 12',
     description: 'Is your dog a wild animal? Well then you have to try the Skylord-Approved Chicken Dinner with Garden Vegetables and Brown Rice food!
     It has all of the antioxitants that your dog needs to thrive. Enjoy!',
-    price: 18.00,
+    price: 18.99,
     card_image: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Food/84158_MAIN._AC_SL1500_V1572895457_.jpg',
     detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Food/64620_PT8._AC_SL1500_V1499959911_.jpg',
     detail_image2: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Food/download.jpeg',

@@ -17,7 +17,7 @@ const Shop = () => {
                         </Link>
                     </div>
                     <div className='foods-div'>
-                        <Link to='/'>
+                        <Link to='/shop/food'>
                             <h6>Food</h6>
                         </Link>
                     </div>
