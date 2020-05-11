@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import HeroHeader from '../components/HeroHeader';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 const SignIn = () => {
+    const [validated, setValidated] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        setValidated(username !== '' && password !== '');
+    }, [username, password]);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+    };
+
     return (
         <div className='sign-in-main-div'>
             <HeroHeader
@@ -12,19 +26,39 @@ const SignIn = () => {
                 centerPosition={true}
             />
             <div className='content-div'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <img
                         alt='Skylord Depot Logo'
                         src='https://skylord-depot.s3.us-east-2.amazonaws.com/Logos/logo_transparent_background.png'
                         className='logo-img'
                     />
-                    <TextField className='textfield-input' label='Username' />
-                    <TextField className='textfield-input' label='Password' />
+                    <TextField 
+                        className='textfield-input' 
+                        label='Username' 
+                        value={username}
+                        onChange={newUsername => setUsername(newUsername.target.value)}
+                    />
+                    <TextField 
+                        className='textfield-input' 
+                        label='Password' 
+                        type='password'
+                        value={password}
+                        onChange={newPassword => setPassword(newPassword.target.value)} 
+                    />
                     <div className='btns-div'>
-                        <Button variant='contained' className='sign-in-btn'>
+                        <Button 
+                            variant='contained' 
+                            className='sign-in-btn'
+                            type='submit'
+                            disabled={!validated}
+                            endIcon={validated ? <CheckBoxIcon style={{ color: 'green' }} /> : <CancelIcon style={{ color: 'red' }} />}
+                        >
                             Sign In
                         </Button>
-                        <Button variant='contained' className='create-act-btn'>
+                        <Button 
+                            variant='contained' 
+                            className='create-act-btn' 
+                        >
                             Create Account
                         </Button>
                     </div>
