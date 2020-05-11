@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
   resources :goods, only: [:index, :show]
-  post '/login', to: 'sessions#login'
+  resources :sessions, only: [:create]
+  resources :registrations, only: [:create]
+  delete :logout, to: 'sessions#logout'
+  get :logged_in, to: 'sesisons#logged_in'
 end

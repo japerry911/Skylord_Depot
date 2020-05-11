@@ -1,0 +1,1 @@
+Rails.application.config.session_store :cookie_store, key: '_skylord_depot', domain: 'skylord-depot-api.herokuapp.com'

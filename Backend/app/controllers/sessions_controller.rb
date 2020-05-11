@@ -1,28 +1,35 @@
 class SessionsController < ApplicationController
-    def login 
-        @user = User.find_by(username: user_params[:username])
+    include CurrentUserConcern
 
-        if !@user
-            render json: { message: 'Wrong username' }, status: :unauthorized
+    def create
+        @user = User.find_by(username: user_params['username'])
+                .try(:authenticate, user_params['password'])
+
+        if @user
+            session[:user_id] = @user.id
+            
+            render json: { status: :created, logged_in: true, user: @user }
         else
-            if @user.authenticate(user_params[:password])
-                payload = {
-                    user_id: @user.id
-                }
-                secret_key = Rails.application.secret_key_base
-
-                token = JWT.encode(payload, secret_key)
-
-                render json: { user: { username: @user.username, token: token }}
-            else
-                render json: { message: 'Wrong password' }, status: :unauthorized
-            end
+            render json: { status: 401 }
         end
     end
 
-    private 
+    def logged_in
+        if @current_user
+            render json: { logged_in: true, user: @current_user }
+        else
+            render json: { logged_in: false }
+        end
+    end
 
-        def user_params
-            params.require(:user).permit([:username, :password])
+    def logout
+        reset_session
+        render json: { status: 200, logged_out: true }
+    end
+
+    private 
+        
+        def user_params 
+            params.require(:user).permit(:username, :password)
         end
 end
