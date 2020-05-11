@@ -59,3 +59,17 @@ export const authSignIn = (username, password) => {
         );
     };
 };
+
+export const authIsLoggedIn = () => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.get('/logged_in', { withCredentials: true }).then(
+            response => {
+                console.log(response)
+                dispatch(authSuccess(response.data.user));
+            },
+            error => console.log(error)
+        );
+    };
+};

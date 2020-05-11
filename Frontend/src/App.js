@@ -5,10 +5,15 @@ import SideDrawer from './components/SideDrawer';
 import Backdrop from './components/Backdrop';
 import Footer from './components/Footer';
 import Spinner from './components/Spinner';
+import { useDispatch, useSelector } from 'react-redux';
+import { authIsLoggedIn } from './redux/actions/authActions';
 
 const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const dispatch = useDispatch();
+  const authLoading = useSelector(state => state.auth.loading);
 
   useEffect(() => {
       const imgs = [
@@ -38,6 +43,8 @@ const App = () => {
       ];
 
       cacheImages(imgs);
+
+      dispatch(authIsLoggedIn());
   }, []);
 
   const cacheImages = srcArray => {
@@ -64,7 +71,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      {isLoading
+      {isLoading || authLoading
       ?
       <div className='spinner-div'>
         <Spinner />
