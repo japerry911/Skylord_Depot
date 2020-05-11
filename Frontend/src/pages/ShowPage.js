@@ -53,6 +53,42 @@ const ShowPage = ({ match }) => {
                     imageUrl={photo}
                     centerPosition={true}
                 />
+                <div className='show-page-content-div'>
+                    <h3 className='name-h3'>
+                        {item.name}
+                    </h3>
+                    <p className='description'>
+                        {item.description}
+                    </p>
+                    <p className='price'>
+                        ${item.price}
+                    </p>
+                    <div className='images-div'>
+                        <img
+                            src={item.card_image}
+                            alt='Card'
+                        />
+                        {item.detail_image1
+                        ?
+                        <img
+                            src={item.detail_image1}
+                            alt='Detail 1'
+                        />
+                        :
+                        null}
+                        {item.detail_image2
+                        ?
+                        <img
+                            src={item.detail_image2}
+                            alt='Detail 2'
+                        />
+                        :
+                        null}
+                    </div>
+                    <button className='add-to-cart-btn'>
+                        Add to Cart
+                    </button>
+                </div>
             </Fragment>}
         </div>
     );
