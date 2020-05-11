@@ -20,7 +20,7 @@ const Toolbar = ({ drawerClickHandler }) => (
                     <li><Link to='/about'>About</Link></li>
                     <li><Link to='/shop'>Shop</Link></li>
                     <li><Link to='/'>Contact</Link></li>
-                    <li><Link to='/'>Sign In</Link></li>
+                    <li><Link to='/sign-in'>Sign In</Link></li>
                 </ul>
             </div>
         </nav>
