@@ -1,4 +1,4 @@
-const INITIAL_STATE = { treats: [], toys: [], foods: [], error: null, loading: false };
+const INITIAL_STATE = { treats: [], toys: [], foods: [], error: null, loading: false, showItem: {} };
 
 const goodsReducer = (state=INITIAL_STATE, action) => {
     switch (action.type) {
@@ -14,6 +14,9 @@ const goodsReducer = (state=INITIAL_STATE, action) => {
             const foods = action.payload.goods.filter(good => good.product_type === 'Food');
 
             return { ...state, treats, toys, foods, loading: false };
+
+        case 'SUCCESS_GET_GOOD':
+            return { ...state, showItem: action.payload.good, loading: false };
 
         default:
             return state;

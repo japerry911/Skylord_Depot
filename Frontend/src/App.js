@@ -21,7 +21,18 @@ const App = () => {
           'https://skylord-depot.s3.us-east-2.amazonaws.com/About/john-salzarulo-b1ABAIbQLOQ-unsplash.jpg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/christian-bowen-OYUzC-h1glg-unsplash.jpg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Food/photo-1585846888147-3fe14c130048.jpeg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/photo-1576686271442-c10befe0b77c.jpeg'
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/photo-1576686271442-c10befe0b77c.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1581125919695-e481e2c98386.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588413453099-f1acf8009661.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588533588400-9e6b9daadecf.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588645143016-8648469d9af3.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588738190182-ba91e4bca6a6.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588789214771-16bc2b2b5bb9.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588833946439-df4d22cbca1e.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588849538136-93dcb143d025.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588870995846-f4ffbc3d03f5.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1588931726309-8e8c4069216f.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1589015745591-29c9d40e7ebb.jpeg'
       ];
 
       cacheImages(imgs);
