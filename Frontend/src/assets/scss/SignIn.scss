@@ -37,6 +37,10 @@ div.sign-in-main-div {
                     font-weight: bold;
                 }
 
+                label:hover {
+                    border-bottom: 2px solid $accentLightGrayText;
+                }
+
                 .MuiInput-underline:after {
                     border-bottom: 2px solid $accentLightGrayText;
                 }
@@ -54,7 +58,8 @@ div.sign-in-main-div {
                     margin: 1rem;
                     width: 40%;
                     font-size: 0.75rem;
-                    transition: 0.6s ease-in;
+                    transition: 0.4s ease-in;
+                    border: 1pt solid $accentLightGrayText;
                 }
 
                 .create-act-btn {
@@ -63,12 +68,14 @@ div.sign-in-main-div {
                     margin: 1rem;
                     width: 40%;
                     font-size: 0.75rem;
-                    transition: 0.6s ease-in;
+                    transition: 0.4s ease-in;
+                    border: 1pt solid $accentLightGrayText;
                 }
 
                 .sign-in-btn:hover, .create-act-btn:hover {
                     background-color: $accentLightGrayText;
-                    transition: 0.6s ease-out;
+                    transition: 0.4s ease-out;
+                    border: 1pt solid $primaryOrange;
                 }
             }
         }
