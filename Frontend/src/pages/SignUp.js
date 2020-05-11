@@ -21,7 +21,7 @@ const SignUp = () => {
     const handleSubmit = event => {
         event.preventDefault();     
         
-        railsServer.post('/registrations', { user: { username, password }}).then(
+        railsServer.post('/registrations', { user: { username, password }}, { withCredentials: true }).then(
             response => console.log('registration response', response),
             error => console.log('registration error', error)
         );
