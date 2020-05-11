@@ -45,7 +45,7 @@ const App = () => {
       cacheImages(imgs);
 
       dispatch(authIsLoggedIn());
-  }, []);
+  }, [dispatch]);
 
   const cacheImages = srcArray => {
       srcArray.forEach(src => {

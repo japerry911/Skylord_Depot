@@ -14,7 +14,6 @@ const SignUp = ({ history }) => {
 
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.auth.loading);
-    const isError = useSelector(state => state.auth.error);
 
     useEffect(() => {
         if (username !== '' && password !== '' && (password === confirmPassword)) {
