@@ -1,4 +1,11 @@
+User.destroy_all
 Good.destroy_all
+
+# Users
+User.create(
+    username: 'test',
+    password: 'test'
+)
 
 # Food
 Good.create(

@@ -10,6 +10,7 @@ import Toys from '../pages/Toys';
 import Food from '../pages/Food';
 import ShowPage from '../pages/ShowPage';
 import ScrollToTop from './ScrollToTop';
+import SignUp from '../pages/SignUp';
 
 export default () => {
     return (
@@ -68,6 +69,12 @@ export default () => {
                     exact
                     path='/shop/(treats|toys|food)/:id'
                     component={ShowPage}
+                />
+
+                <Route
+                    exact 
+                    path='/register-account'
+                    component={SignUp}
                 />
             </Switch>
         </Fragment>

@@ -2,42 +2,46 @@ import React, { useState, useEffect, Fragment } from 'react';
 import HeroHeader from '../components/HeroHeader';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import CancelIcon from '@material-ui/icons/Cancel';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { authSignIn } from '../redux/actions/authActions';
+import { authSignUp } from '../redux/actions/authActions';
 import Spinner from '../components/Spinner';
 
-const SignIn = ({ history }) => {
+const SignUp = ({ history }) => {
     const [validated, setValidated] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.auth.loading);
 
     useEffect(() => {
-        setValidated(username !== '' && password !== '');
-    }, [username, password]);
+        if (username !== '' && password !== '' && (password === confirmPassword)) {
+            setValidated(true);
+        } else {
+            setValidated(false);
+        }
+    }, [username, password, confirmPassword]);
 
     const handleSubmit = event => {
-        event.preventDefault();
-
-        dispatch(authSignIn(username, password)).then(
-            authed => {
-                if (authed) {
+        event.preventDefault();     
+        
+        dispatch(authSignUp(username, password)).then(
+            createdBool => {
+                if (createdBool) {
+                    console.log('Account Created');
                     history.push('/');
                 } else {
-                    alert('Incorrect Credentials.');
+                    alert('not created');
                 }
-            }
+            },
+            error => alert(error)
         );
     };
 
     return (
-        <div className='sign-in-main-div'>
-            {isLoading 
+        <div className='sign-up-main-div'>
+            {isLoading
             ?
             <div className='spinner-div'>
                 <Spinner />
@@ -45,8 +49,8 @@ const SignIn = ({ history }) => {
             :
             <Fragment>
                 <HeroHeader
-                    headerText='Sign In'
-                    imageUrl='https://skylord-depot.s3.us-east-2.amazonaws.com/SignIn/photo-1588833945832-a888b6a03c2d.jpeg'
+                    headerText='Register an Account'
+                    imageUrl='https://skylord-depot.s3.us-east-2.amazonaws.com/SignUp/photo-1541952137766-40b2244d0a5b.jpeg'
                     centerPosition={true}
                 />
                 <div className='content-div'>
@@ -69,27 +73,20 @@ const SignIn = ({ history }) => {
                             value={password}
                             onChange={newPassword => setPassword(newPassword.target.value)} 
                         />
-                        <div className='btns-div'>
-                            <Button 
-                                variant='contained' 
-                                className='sign-in-btn'
-                                type='submit'
-                                disabled={!validated}
-                                endIcon={validated ? <CheckBoxIcon style={{ color: 'green' }} /> : <CancelIcon style={{ color: 'red' }} />}
-                            >
-                                Sign In
-                            </Button>
-                            <Link
-                                to='/register-account'
-                            >
-                                <Button 
-                                    variant='contained' 
-                                    className='create-act-btn' 
-                                >
-                                    Create Account
-                                </Button>
-                            </Link>
-                        </div>
+                        <TextField 
+                            className='textfield-input' 
+                            label='Confirm Password' 
+                            type='password'
+                            value={confirmPassword}
+                            onChange={newConfirmPassword => setConfirmPassword(newConfirmPassword.target.value)} 
+                        />
+                        <Button
+                            className='submit-btn'
+                            disabled={!validated}
+                            type='submit'
+                        >
+                            Register Account
+                        </Button>
                     </form>
                 </div>
             </Fragment>}
@@ -97,4 +94,4 @@ const SignIn = ({ history }) => {
     );
 };
 
-export default SignIn;
+export default SignUp;
