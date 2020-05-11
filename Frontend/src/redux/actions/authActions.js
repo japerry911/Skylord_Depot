@@ -25,8 +25,19 @@ export const authSignUp = (username, password) => {
         dispatch(authPending());
 
         return railsServer.post('/registrations', { user: { username, password }}, { withCredentials: true }).then(
-            response => dispatch(authSuccess(response.data.user)),
-            error => dispatch(authError(error))
+            response => {
+                if (response.status === 200) {
+                    dispatch(authSuccess(response.data.user));
+                    return true;
+                } else {
+                    dispatch(authError('Error making account'));
+                    return false;
+                }
+            },
+            error => {
+                dispatch(authError(error));
+                return false;
+            }
         );
     }
 };
@@ -36,7 +47,14 @@ export const authSignIn = (username, password) => {
         dispatch(authPending());
 
         return railsServer.post('/sessions', { user: { username, password }}, { withCredentials: true }).then(
-            response => dispatch(authSuccess(response.data.user)),
+            response => {
+                if (response.data.user) {
+                    dispatch(authSuccess(response.data.user))
+                    return true;
+                } else {
+                    dispatch(authError('Incorrect Credentials'));
+                    return false;
+                }},
             error => dispatch(authError(error))
         );
     };
