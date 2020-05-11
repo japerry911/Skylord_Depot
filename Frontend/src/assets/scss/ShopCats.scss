@@ -8,7 +8,7 @@ div.main-div-shop-cat {
     .cards-div {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
         width: 90%;
     }
 
@@ -27,9 +27,10 @@ div.main-div-shop-cat {
         border: 1pt solid $primaryOrange;
 
         .card-main-img {
-            width: 30%;
+            width: 60%;
             height: auto;
             border-radius: 12pt;
+            border: 1pt solid $primaryOrange;
         }
 
         .item-header-h6 {
