@@ -67,7 +67,11 @@ export const authIsLoggedIn = () => {
         return railsServer.get('/logged_in', { withCredentials: true }).then(
             response => {
                 console.log(response)
-                dispatch(authSuccess(response.data.user));
+                if (response.data.user) {
+                    dispatch(authSuccess(response.data.user))
+                } else {
+                    dispatch(authSuccess({}));
+                };
             },
             error => console.log(error)
         );
