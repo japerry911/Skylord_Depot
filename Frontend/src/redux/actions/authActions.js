@@ -69,7 +69,7 @@ export const authIsLoggedIn = () => {
                 if (response.data.user) {
                     dispatch(authSuccess(response.data.user))
                 } else {
-                    dispatch(authSuccess({}));
+                    dispatch(authSuccessLogout());
                 };
             },
             error => console.log(error)
@@ -82,8 +82,14 @@ export const authLogout = () => {
         dispatch(authPending());
 
         return railsServer.delete('/logout', { withCredentials: true }).then(
-            () => dispatch(authSuccess({})),
+            () => dispatch(authSuccessLogout()),
             error => dispatch(authError(error))
         );
+    };
+};
+
+export const authSuccessLogout = () => {
+    return {
+        type: 'AUTH_SUCCESS_LOGOUT'
     };
 };
