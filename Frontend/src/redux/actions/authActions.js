@@ -152,7 +152,7 @@ export const authCreateOrder = (user_id, total_price, items) => {
         dispatch(authPending());
 
         return railsServer.post('/orders', { new_order: { user_id, total_price, items }}).then(
-            response => dispatch(authSuccessCreateOrder(response.data.completed_order)),
+            response => dispatch(authSuccessCreateOrder(response.data)),
             error => dispatch(authError(error))
         );
     };
