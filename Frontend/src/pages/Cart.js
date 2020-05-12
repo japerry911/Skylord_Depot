@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
 import { useSelector } from 'react-redux';
@@ -7,8 +7,14 @@ import Button from '@material-ui/core/Button';
 import Spinner from '../components/Spinner';
 
 const Cart = () => {
+    const [totalPrice, setTotalPrice] = useState(0);
+
     const cartItems = useSelector(state => state.auth.cart);
     const isLoading = useSelector(state => state.auth.loading);
+
+    useEffect(() => {
+        setTotalPrice(cartItems.reduce((accumulator, currentValue) => accumulator + (currentValue.quantity * Number(currentValue.good.price)), 0));
+    }, [cartItems]);
 
     return (
         <div className='cart-main-div'>
@@ -43,12 +49,19 @@ const Cart = () => {
                             );
                         })}
                     </ul>
-                    <Button
-                        disabled={cartItems.length === 0}
-                        className='checkout-btn'
-                    >
-                        Checkout
-                    </Button>
+                    <div className='total-and-checkout-btn-div'>
+                        <div className='total-price-div'>
+                            <p className='total-price'>
+                                Total: ${totalPrice}
+                            </p>
+                        </div>
+                        <Button
+                            disabled={cartItems.length === 0}
+                            className='checkout-btn'
+                        >
+                            Checkout
+                        </Button>
+                    </div>
                 </div>
             </Fragment>}
         </div>
