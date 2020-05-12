@@ -79,6 +79,7 @@
                 a:hover, a:active, .logout-list-item:hover, .logout-list-item:active {
                     background-color: $accentLightGrayText;
                     color: $primaryOrange;
+                    cursor: pointer;
                 }
             }
         }
