@@ -1,0 +1,39 @@
+div.cart-main-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $accentLightGray;
+
+    .cart-content-div {
+        width: 80%;
+        height: 100%;
+        margin: 3rem;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $accentLightOrange;
+        border-radius: 12pt;
+
+        .cart-header-h3 {
+            align-self: flex-start;
+            font-size: 1.5rem;
+        }
+
+        .cart-divider {
+            width: 100%;
+        }
+
+        ul {
+            width: 100%;
+            list-style-type: none;
+
+            li {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+div.cart-item-main-div {
+    width: 90%;
+    height: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1pt solid #000;
+
+    .name-and-image-div {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: 1rem;
+        justify-content: center;
+
+        p {
+            font-family: 'Avenir-Medium';
+            text-align: center;
+        }
+
+        img {
+            width: 10%;
+            height: auto;
+            align-self: center;
+        }
+    }
+
+    .quantity-and-price-div {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin: 1rem;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-family: 'Avenir-Medium';
+            font-size: .9rem;
+        }
+    }
+}
