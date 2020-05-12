@@ -77,6 +77,7 @@ const App = () => {
     setSideDrawerOpen(false);
   };
 
+  console.log(isLoading);
   return (
     <div className='App'>
       {isLoading || authLoading
