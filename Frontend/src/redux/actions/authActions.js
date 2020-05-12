@@ -128,3 +128,14 @@ export const authAddToCart = (userId, goodId, quantity) => {
         );
     };
 };
+
+export const authDestroyCartItem = id => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.delete(`/order_items/${id}`).then(
+            () => dispatch(authSuccessStopLoading()),
+            error => dispatch(authError(error))
+        );
+    };
+};

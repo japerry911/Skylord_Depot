@@ -11,6 +11,8 @@ import Food from '../pages/Food';
 import ShowPage from '../pages/ShowPage';
 import ScrollToTop from './ScrollToTop';
 import SignUp from '../pages/SignUp';
+import ProtectedRoute from './ProtectedRoute';
+import Cart from '../pages/Cart';
 
 export default () => {
     return (
@@ -75,6 +77,12 @@ export default () => {
                     exact 
                     path='/register-account'
                     component={SignUp}
+                />
+
+                <ProtectedRoute
+                    exact
+                    path='/cart'
+                    component={Cart}
                 />
             </Switch>
         </Fragment>
