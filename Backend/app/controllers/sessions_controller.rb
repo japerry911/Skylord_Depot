@@ -27,6 +27,12 @@ class SessionsController < ApplicationController
         render json: { status: 200 }
     end
 
+    def show 
+        @user = User.find(params[:id])
+
+        render json: @user.to_json(only: [:username], include: { order_items: { include: { good: {}}}})
+    end
+
     private 
         
         def user_params 
