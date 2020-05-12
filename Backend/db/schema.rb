@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_134845) do
+ActiveRecord::Schema.define(version: 2020_05_12_214521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,25 @@ ActiveRecord::Schema.define(version: 2020_05_12_134845) do
     t.index ["user_id"], name: "index_order_items_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.decimal "total_price", precision: 10, scale: 2
+    t.string "processed"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "purchased_items", force: :cascade do |t|
+    t.bigint "good_id", null: false
+    t.bigint "order_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["good_id"], name: "index_purchased_items_on_good_id"
+    t.index ["order_id"], name: "index_purchased_items_on_order_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -44,4 +63,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_134845) do
 
   add_foreign_key "order_items", "goods"
   add_foreign_key "order_items", "users"
+  add_foreign_key "orders", "users"
+  add_foreign_key "purchased_items", "goods"
+  add_foreign_key "purchased_items", "orders"
 end
