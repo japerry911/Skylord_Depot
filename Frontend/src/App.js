@@ -21,11 +21,11 @@ const App = () => {
       const imgs = [
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Logos/logo_transparent_background.png',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Home/golden-retreiver-usa-landscape.jpeg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/andre-boysen-GWWHCY3K-U0-unsplash.jpg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/jamie-street-uNNCs5kL70Q-unsplash.jpg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/sarah-brown-ubRoy09Y9Gw-unsplash.jpg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/marek-szturc-GokBcmdOI6I-unsplash.jpg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/About/john-salzarulo-b1ABAIbQLOQ-unsplash.jpg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/andre-boysen-GWWHCY3K-U0-unsplash+(1).jpg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/jamie-street-uNNCs5kL70Q-unsplash+(2).jpg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/sarah-brown-ubRoy09Y9Gw-unsplash+(1).jpg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/marek-szturc-GokBcmdOI6I-unsplash+(1).jpg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/About/john-salzarulo-b1ABAIbQLOQ-unsplash+(1).jpg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/christian-bowen-OYUzC-h1glg-unsplash.jpg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Food/photo-1585846888147-3fe14c130048.jpeg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Toys/photo-1576686271442-c10befe0b77c.jpeg',
@@ -67,7 +67,7 @@ const App = () => {
         });
       });
 
-      setTimeout(() => setIsLoading(false), 1000);
+      setIsLoading(false);
   };
 
   const drawerClickHandler = () => {
