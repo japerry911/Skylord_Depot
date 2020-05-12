@@ -66,14 +66,30 @@ export const authIsLoggedIn = () => {
 
         return railsServer.get('/logged_in', { withCredentials: true }).then(
             response => {
-                console.log(response)
                 if (response.data.user) {
                     dispatch(authSuccess(response.data.user))
                 } else {
-                    dispatch(authSuccess({}));
+                    dispatch(authSuccessLogout());
                 };
             },
             error => console.log(error)
         );
+    };
+};
+
+export const authLogout = () => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.delete('/logout', { withCredentials: true }).then(
+            () => dispatch(authSuccessLogout()),
+            error => dispatch(authError(error))
+        );
+    };
+};
+
+export const authSuccessLogout = () => {
+    return {
+        type: 'AUTH_SUCCESS_LOGOUT'
     };
 };

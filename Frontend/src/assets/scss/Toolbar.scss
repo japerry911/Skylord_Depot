@@ -66,9 +66,20 @@
                     }
                 }
 
-                a:hover, a:active {
+                .logout-list-item {
+                    color: $accentLightWhite;
+                    text-decoration: none;
+                    display: block;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                a:hover, a:active, .logout-list-item:hover, .logout-list-item:active {
                     background-color: $accentLightGrayText;
                     color: $primaryOrange;
+                    cursor: pointer;
                 }
             }
         }
