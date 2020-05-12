@@ -17,6 +17,9 @@ const authReducer = (state=INITIAL_STATE, action) => {
         case 'AUTH_SUCCESS_CHECK_CART':
             return { ...state, loading: false, cart: action.payload };
 
+        case 'AUTH_SUCCESS_STOP_LOADING':
+            return { ...state, loading: false };
+
         default:
             return state;
     }

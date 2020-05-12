@@ -111,3 +111,20 @@ export const authSuccessCheckCart = payload => {
         payload
     };
 };
+
+export const authSuccessStopLoading = () => {
+    return {
+        type: 'AUTH_SUCCESS_STOP_LOADING'
+    };
+};
+
+export const authAddToCart = (userId, goodId, quantity) => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.post('/order_items', { order_item: { user: userId, good: goodId, quantity }}).then(
+            () => dispatch(authSuccessStopLoading()),
+            error => dispatch(authError(error))
+        );
+    };
+};
