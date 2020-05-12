@@ -1,14 +1,15 @@
+OrderItem.destroy_all
 User.destroy_all
 Good.destroy_all
 
 # Users
-User.create(
+test_user = User.create(
     username: 'test',
     password: 'test'
 )
 
 # Food
-Good.create(
+good1 = Good.create(
     name: 'Blue Buffalo Life Protection Formula Adult Chicken & Brown Rice Recipe Dry Dog Food',
     description: 'Great Dog Food that is Skylord-Approved. This food is made with Chicken and Brown Rice. Enjoy!',
     price: 49.98,
@@ -18,7 +19,7 @@ Good.create(
     product_type: 'Food'
 )
 
-Good.create(
+good2 = Good.create(
     name: 'Taste of the Wild High Prairie Grain-Free Dry Dog Food',
     description: 'Skylord-Approved food that comes from the wild! This is made with NO grain and is from the High Prarie. Enjoy!',
     price: 48.99,
@@ -130,4 +131,17 @@ Good.create(
     detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/540747396_344cde9fda_o-960x540.jpg',
     detail_image2: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/download+(1).jpeg',
     product_type: 'Treat'
+)
+
+# Order Items
+OrderItem.create(
+    user: test_user,
+    good: good1,
+    quantity: 3
+)
+
+OrderItem.create(
+    user: test_user,
+    good: good2,
+    quantity: 1
 )
