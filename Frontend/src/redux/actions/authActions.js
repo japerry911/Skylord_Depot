@@ -139,3 +139,21 @@ export const authDestroyCartItem = id => {
         );
     };
 };
+
+export const authSuccessCreateOrder = payload => {
+    return {
+        type: 'AUTH_SUCCESS_CREATE_ORDER',
+        payload
+    };
+};
+
+export const authCreateOrder = (user_id, total_price, items) => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.post('/orders', { new_order: { user_id, total_price, items }}).then(
+            response => dispatch(authSuccessCreateOrder(response.data.completed_order)),
+            error => dispatch(authError(error))
+        );
+    };
+};

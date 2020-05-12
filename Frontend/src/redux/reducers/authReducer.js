@@ -1,4 +1,4 @@
-const INITIAL_STATE = { user: {}, loggedIn: false, loading: false, error: null, cart: [] };
+const INITIAL_STATE = { user: {}, loggedIn: false, loading: false, error: null, cart: [], order: {} };
 
 const authReducer = (state=INITIAL_STATE, action) => {
     switch (action.type) {
@@ -19,6 +19,9 @@ const authReducer = (state=INITIAL_STATE, action) => {
 
         case 'AUTH_SUCCESS_STOP_LOADING':
             return { ...state, loading: false };
+
+        case 'AUTH_SUCCESS_CREATE_ORDER':
+            return { ...state, loading: false, order: action.payload, cart: [] };
 
         default:
             return state;
