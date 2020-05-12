@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :registrations, only: [:create]
   resources :order_items, only: [:create, :destroy]
   resources :charges, only: [:create]
+  resources :orders, only: [:create]
   delete :logout, to: 'sessions#logout'
   get :logged_in, to: 'sessions#logged_in'
 end
