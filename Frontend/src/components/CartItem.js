@@ -1,4 +1,6 @@
 import React from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
 
 const CartItem = ({ item }) => {
     return (
@@ -19,6 +21,11 @@ const CartItem = ({ item }) => {
                 <p>
                     Price: ${item.good.price} x {item.quantity} = ${(item.good.price * item.quantity).toFixed(2)}
                 </p>
+            </div>
+            <div className='delete-btn-div'>
+                <IconButton className='delete-btn'>
+                    <DeleteIcon />
+                </IconButton>
             </div>
         </div>
     );

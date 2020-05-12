@@ -4,8 +4,6 @@ class OrderItemsController < ApplicationController
 
         if order_item_params[:quantity] == "0"
             order_item.destroy
-            
-            render status: :ok
         else 
             if order_item
                 @return_order_item = order_item.update(quantity: order_item_params[:quantity])
@@ -15,9 +13,9 @@ class OrderItemsController < ApplicationController
 
                 @return_order_item = OrderItem.create(user: user, good: good, quantity: order_item_params[:quantity])
             end
-
-            render status: :ok
         end
+
+        render status: :ok
     end
 
     private

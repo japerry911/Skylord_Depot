@@ -1,17 +1,19 @@
 div.cart-item-main-div {
     width: 90%;
-    height: 100%;
+    min-height: 200px;
     margin-top: 1rem;
     display: flex;
     justify-content: space-between;
     border: 1pt solid #000;
+    border-radius: 12pt;
+    background-color: $accentLightGray;
 
     .name-and-image-div {
         display: flex;
         flex-direction: column;
         width: 60%;
         margin: 1rem;
-        justify-content: center;
+        justify-content: space-evenly;
 
         p {
             font-family: 'Avenir-Medium';
@@ -19,9 +21,11 @@ div.cart-item-main-div {
         }
 
         img {
-            width: 10%;
+            width: 100px;
             height: auto;
             align-self: center;
+            border-radius: 12pt;
+            border: 1pt solid $accentLightGrayText;
         }
     }
 
@@ -37,5 +41,10 @@ div.cart-item-main-div {
             font-family: 'Avenir-Medium';
             font-size: .9rem;
         }
+    }
+
+    .delete-btn-div {
+        display: flex;
+        align-items: center;
     }
 }

@@ -3,6 +3,7 @@ import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
 import { useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
+import Button from '@material-ui/core/Button';
 
 const Cart = () => {
     const cartItems = useSelector(state => state.auth.cart);
@@ -15,6 +16,11 @@ const Cart = () => {
                 centerPosition={true}
             />
             <div className='cart-content-div'>
+                <img
+                    alt='Skylord Depot Logo'
+                    src='https://skylord-depot.s3.us-east-2.amazonaws.com/Logos/logo_transparent_background.png'
+                    className='logo-img'
+                />
                 <h3 className='cart-header-h3'>
                     Your Items
                 </h3>
@@ -28,6 +34,12 @@ const Cart = () => {
                         );
                     })}
                 </ul>
+                <Button
+                    disabled={cartItems.length === 0}
+                    className='checkout-btn'
+                >
+                    Checkout
+                </Button>
             </div>
         </div>
     );
