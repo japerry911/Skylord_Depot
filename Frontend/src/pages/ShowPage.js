@@ -3,7 +3,7 @@ import HeroHeader from '../components/HeroHeader';
 import Spinner from '../components/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGood } from '../redux/actions/goodsActions';
-import { authAddToCart } from '../redux/actions/authActions';
+import { authAddToCart, authCheckCart } from '../redux/actions/authActions';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -14,6 +14,8 @@ const ShowPage = ({ match }) => {
 
     const dispatch = useDispatch();
     const item = useSelector(state => state.goods.showItem);
+    const user = useSelector(state => state.auth.user);
+    const authLoading = useSelector(state => state.auth.loading);
 
     useEffect(() => {
         const imgs = [
@@ -51,9 +53,19 @@ const ShowPage = ({ match }) => {
         }
     };
 
+    const handleAddToCart = () => {
+        dispatch(authAddToCart(user.id, item.id, quantity)).then(
+            () => {
+                dispatch(authCheckCart(user.id)).then(
+                    () => alert('Item Added to Cart')
+                );
+            }
+        );
+    };
+
     return (
         <div className='show-page-main-div'>
-            {isLoading
+            {isLoading || authLoading
             ?
             <div className='spinner-div'>
                 <Spinner />
@@ -105,7 +117,11 @@ const ShowPage = ({ match }) => {
                             value={quantity}
                             onChange={handleQuantityChange}
                         />
-                        <Button className='add-to-cart-btn' disabled={!quantity}>
+                        <Button
+                            className='add-to-cart-btn' 
+                            disabled={!quantity || Object.keys(user).length === 0}
+                            onClick={handleAddToCart}
+                        >
                             Add to Cart
                         </Button>
                     </div>
