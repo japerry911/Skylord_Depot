@@ -12,7 +12,10 @@ class OrdersController < ApplicationController
 
         @created_order.update(processed: 'COMPLETED')
 
-        render json: { completed_order: @created_order }
+        @order_items_to_destroy = OrderItem.find_by(user: user)
+        @order_items_to_destroy.destroy
+
+        render json: @created_order, include: { purchased_items: { include: { good: {} }}}
     end
 
     private

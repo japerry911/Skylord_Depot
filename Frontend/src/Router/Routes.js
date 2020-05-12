@@ -13,6 +13,7 @@ import ScrollToTop from './ScrollToTop';
 import SignUp from '../pages/SignUp';
 import ProtectedRoute from './ProtectedRoute';
 import Cart from '../pages/Cart';
+import OrderConfirmation from '../pages/OrderConfirmation';
 
 export default () => {
     return (
@@ -83,6 +84,12 @@ export default () => {
                     exact
                     path='/cart'
                     component={Cart}
+                />
+
+                <ProtectedRoute
+                    exact 
+                    path='/order-confirmation'
+                    component={OrderConfirmation}
                 />
             </Switch>
         </Fragment>
