@@ -1,4 +1,4 @@
-const INITIAL_STATE = { user: {}, loggedIn: false, loading: false, error: null };
+const INITIAL_STATE = { user: {}, loggedIn: false, loading: false, error: null, cart: [] };
 
 const authReducer = (state=INITIAL_STATE, action) => {
     switch (action.type) {
@@ -13,6 +13,12 @@ const authReducer = (state=INITIAL_STATE, action) => {
 
         case 'AUTH_SUCCESS_LOGOUT':
             return { ...state, loggedIn: false, loading: false, user: {}, error: null };
+
+        case 'AUTH_SUCCESS_CHECK_CART':
+            return { ...state, loading: false, cart: action.payload };
+
+        case 'AUTH_SUCCESS_STOP_LOADING':
+            return { ...state, loading: false };
 
         default:
             return state;

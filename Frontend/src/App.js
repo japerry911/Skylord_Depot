@@ -6,7 +6,7 @@ import Backdrop from './components/Backdrop';
 import Footer from './components/Footer';
 import Spinner from './components/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
-import { authIsLoggedIn } from './redux/actions/authActions';
+import { authIsLoggedIn, authCheckCart } from './redux/actions/authActions';
 
 const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -14,6 +14,8 @@ const App = () => {
 
   const dispatch = useDispatch();
   const authLoading = useSelector(state => state.auth.loading);
+  const loggedIn = useSelector(state => state.auth.loggedIn);
+  const authId = useSelector(state => state.auth.user.id);
 
   useEffect(() => {
       const imgs = [
@@ -40,12 +42,18 @@ const App = () => {
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1589015745591-29c9d40e7ebb.jpeg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/SignUp/photo-1541952137766-40b2244d0a5b.jpeg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/SignIn/photo-1588833945832-a888b6a03c2d.jpeg'
-      ];
+    ];
 
-      cacheImages(imgs);
+    cacheImages(imgs);
 
-      dispatch(authIsLoggedIn());
+    dispatch(authIsLoggedIn());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (loggedIn) {
+      dispatch(authCheckCart(authId));
+    }
+  }, [loggedIn, authId, dispatch])
 
   const cacheImages = srcArray => {
       srcArray.forEach(src => {
