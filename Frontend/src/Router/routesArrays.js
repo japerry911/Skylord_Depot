@@ -8,6 +8,5 @@ export const NonAuth = [
 export const Auth = [
     { title: 'About', path: '/about' },
     { title: 'Shop', path: '/shop' },
-    { title: 'Contact', path: '/contact' },
-    { title: 'Cart', path: '/cart' }
+    { title: 'Contact', path: '/contact' }
 ];
