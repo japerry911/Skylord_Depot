@@ -3,13 +3,19 @@ import HeroHeader from '../components/HeroHeader';
 import Spinner from '../components/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGood } from '../redux/actions/goodsActions';
+import { authAddToCart, authCheckCart } from '../redux/actions/authActions';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const ShowPage = ({ match }) => {
     const [photo, setPhoto] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [quantity, setQuantity] = useState(1);
 
     const dispatch = useDispatch();
     const item = useSelector(state => state.goods.showItem);
+    const user = useSelector(state => state.auth.user);
+    const authLoading = useSelector(state => state.auth.loading);
 
     useEffect(() => {
         const imgs = [
@@ -39,9 +45,27 @@ const ShowPage = ({ match }) => {
         return () => setIsLoading(true);
     }, [match.params.id, dispatch]);
 
+    const handleQuantityChange = event => {
+        if (event.target.value >= 0) {
+            setQuantity(event.target.value)
+        } else {
+            setQuantity(0);
+        }
+    };
+
+    const handleAddToCart = () => {
+        dispatch(authAddToCart(user.id, item.id, quantity)).then(
+            () => {
+                dispatch(authCheckCart(user.id)).then(
+                    () => alert('Item Added to Cart')
+                );
+            }
+        );
+    };
+
     return (
         <div className='show-page-main-div'>
-            {isLoading
+            {isLoading || authLoading
             ?
             <div className='spinner-div'>
                 <Spinner />
@@ -85,9 +109,22 @@ const ShowPage = ({ match }) => {
                         :
                         null}
                     </div>
-                    <button className='add-to-cart-btn'>
-                        Add to Cart
-                    </button>
+                    <div className='btn-and-quantity-div'>
+                        <TextField
+                            className='quantity-input'
+                            type='number'
+                            label='Quantity'
+                            value={quantity}
+                            onChange={handleQuantityChange}
+                        />
+                        <Button
+                            className='add-to-cart-btn' 
+                            disabled={!quantity || Object.keys(user).length === 0}
+                            onClick={handleAddToCart}
+                        >
+                            Add to Cart
+                        </Button>
+                    </div>
                 </div>
             </Fragment>}
         </div>
