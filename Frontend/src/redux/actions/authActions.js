@@ -93,3 +93,21 @@ export const authSuccessLogout = () => {
         type: 'AUTH_SUCCESS_LOGOUT'
     };
 };
+
+export const authCheckCart = id => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.get(`/sessions/${id}`).then(
+            response => dispatch(authSuccessCheckCart(response.data.order_items)),
+            error => dispatch(authError(error))
+        );
+    };
+};
+
+export const authSuccessCheckCart = payload => {
+    return {
+        type: 'AUTH_SUCCESS_CHECK_CART',
+        payload
+    };
+};
