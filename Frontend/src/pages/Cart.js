@@ -1,20 +1,36 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
 import Button from '@material-ui/core/Button';
 import Spinner from '../components/Spinner';
+import { authCreateOrder } from '../redux/actions/authActions';
 
-const Cart = () => {
+const Cart = ({ history }) => {
     const [totalPrice, setTotalPrice] = useState(0);
 
+    const dispatch = useDispatch();
     const cartItems = useSelector(state => state.auth.cart);
     const isLoading = useSelector(state => state.auth.loading);
+    const userId = useSelector(state => state.auth.user.id);
 
     useEffect(() => {
         setTotalPrice(cartItems.reduce((accumulator, currentValue) => accumulator + (currentValue.quantity * Number(currentValue.good.price)), 0));
     }, [cartItems]);
+
+    const handleCheckout = () => {
+        const purchaseItems = cartItems.map(itemObject => {
+            return {
+                id: itemObject.good_id,
+                quantity: itemObject.quantity
+            };
+        })
+
+        dispatch(authCreateOrder(userId, totalPrice, purchaseItems)).then(
+            () => history.push('/order-confirmation')
+        );
+    };
 
     return (
         <div className='cart-main-div'>
@@ -58,6 +74,7 @@ const Cart = () => {
                         <Button
                             disabled={cartItems.length === 0}
                             className='checkout-btn'
+                            onClick={handleCheckout}
                         >
                             Checkout
                         </Button>
