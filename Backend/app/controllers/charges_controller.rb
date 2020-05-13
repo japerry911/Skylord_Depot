@@ -3,7 +3,7 @@ class ChargesController < ApplicationController
         Stripe.api_key = Rails.application.credentials.stripe[:stripe_secret_key]
 
         intent = Stripe::PaymentIntent.create({
-            amount: 1099,
+            amount: 100000,
             currency: 'usd',
             metadata: { integration_check: 'accept_a_payment' }
         })
