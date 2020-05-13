@@ -68,7 +68,7 @@ const Cart = ({ history }) => {
                     <div className='total-and-checkout-btn-div'>
                         <div className='total-price-div'>
                             <p className='total-price'>
-                                Total: ${totalPrice}
+                                Total: ${totalPrice.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                             </p>
                         </div>
                         <Button
