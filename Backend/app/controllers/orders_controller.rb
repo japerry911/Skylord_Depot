@@ -11,13 +11,6 @@ class OrdersController < ApplicationController
         end
 
         render json: @created_order, include: { purchased_items: { include: { good: {} }}}
-
-        #@created_order.update(processed: 'READY-FOR-CHARGE')
-
-        #@order_items_to_destroy = OrderItem.find_by(user: user)
-        #@order_items_to_destroy.destroy
-
-        #render json: @created_order, include: { purchased_items: { include: { good: {} }}}
     end
 
     def destroy
@@ -30,9 +23,17 @@ class OrdersController < ApplicationController
         render status: :ok
     end
 
+    def update
+        @order_to_update = Order.find(params[:id])
+
+        @order_to_update.update(processed: order_params[:processed])
+
+        render json: { updated_order: @order_to_update }
+    end
+
     private
 
         def order_params
-            params.require(:new_order).permit([:user_id, :total_price, :items => [:id, :quantity]])
+            params.require(:new_order).permit([:user_id, :total_price, :processed, :items => [:id, :quantity]])
         end
 end
