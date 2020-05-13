@@ -54,7 +54,7 @@ div.cart-main-div {
 
             .total-price-div {
                 background-color: $accentLightGray;
-                height: 70%;
+                height: 100px;
                 width: 25%;
                 display: flex;
                 justify-content: center;
@@ -75,7 +75,7 @@ div.cart-main-div {
                 font-size: 1.25rem;
                 transition: 0.4s ease-in;
                 border: 1pt solid $accentLightGrayText;
-                height: 70%;
+                height: 100px;
             }
 
             .checkout-btn:hover {
