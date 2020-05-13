@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import CardSection from '../components/CardSection';
 import Button from '@material-ui/core/Button';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
+import { authDestroyOrder } from '../redux/actions/authActions';
 
-const OrderPayment = () => {
+const OrderPayment = ({ history }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [validated, setValidated] = useState(false);
     const [bAddress, setBAddress] = useState('');
@@ -18,15 +19,27 @@ const OrderPayment = () => {
     const [sCity, setSCity] = useState('');
     const [sState, setSState] = useState('');
     const [sZipcode, setSZipcode] = useState('');
+    
+    const dispatch = useDispatch();
 
     const stripe = useStripe();
     const elements = useElements();
 
     const clientSecret = useSelector(state => state.auth.clientSecret);
+    const order = useSelector(state => state.auth.order);
 
     useEffect(() => {
         setValidated(bAddress && bCity && bState && bZipcode && sAddress && sCity && sState && sZipcode);
     }, [bAddress, bCity, bState, bZipcode, sAddress, sCity, sState, sZipcode]);
+
+    const handleCancel = () => {
+        dispatch(authDestroyOrder(order.id)).then(
+            () => {
+                alert('Order Canceled Successfully.');
+                history.push('/');
+            }
+        );
+    };
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -96,7 +109,10 @@ const OrderPayment = () => {
                     <CardSection />
                     <Divider className='divider' />
                     <div className='btn-div'>
-                        <Button className='confirm-btn' disabled={!stripe} type='submit' disabled={!validated}>
+                        <Button className='btn' onClick={handleCancel}>
+                            Cancel Order
+                        </Button>
+                        <Button className='btn' disabled={!stripe || !validated} type='submit'>
                             Confirm Order
                         </Button>
                     </div>
