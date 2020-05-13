@@ -15,7 +15,7 @@ const StripeButton = () => {
 
     return (
         <StripeCheckout
-            label='Pay Now'
+            label='Pay with Stripe'
             name='Skylord Depot'
             billingAddress
             shippingAddress
@@ -23,7 +23,7 @@ const StripeButton = () => {
             image='https://skylord-depot.s3.us-east-2.amazonaws.com/Logos/logo_size.jpg'
             description={`Your total is $${rawPrice}`}
             amount={priceForStripe}
-            panelLabel='Pay Now'
+            panelLabel='Pay with Stripe'
             token={onToken}
             stripeKey={publishableKey}
         />
