@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { authDestroyOrder } from '../redux/actions/authActions';
 import Spinner from '../components/Spinner';
+import StripeButton from '../components/StripeButton';
 
 const OrderReview = ({ history }) => {
     const dispatch = useDispatch();
@@ -34,9 +35,7 @@ const OrderReview = ({ history }) => {
                     <Button onClick={handleCancel}>
                         Cancel
                     </Button>
-                    <Button>
-                        Complete Payment
-                    </Button>
+                    <StripeButton />
                 </div>
             </Fragment>}
         </div>
