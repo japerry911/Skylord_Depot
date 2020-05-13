@@ -14,6 +14,7 @@ import SignUp from '../pages/SignUp';
 import ProtectedRoute from './ProtectedRoute';
 import Cart from '../pages/Cart';
 import OrderConfirmation from '../pages/OrderConfirmation';
+import OrderReview from '../pages/OrderReview';
 
 export default () => {
     return (
@@ -90,6 +91,12 @@ export default () => {
                     exact 
                     path='/order-confirmation'
                     component={OrderConfirmation}
+                />
+
+                <ProtectedRoute
+                    exact
+                    path='/order-review'
+                    component={OrderReview}
                 />
             </Switch>
         </Fragment>

@@ -21,7 +21,10 @@ const authReducer = (state=INITIAL_STATE, action) => {
             return { ...state, loading: false };
 
         case 'AUTH_SUCCESS_CREATE_ORDER':
-            return { ...state, loading: false, order: action.payload, cart: [] };
+            return { ...state, loading: false, order: action.payload };
+
+        case 'AUTH_SUCCESS_DESTROY_ORDER': 
+            return { ...state, loading: false, order: {} };
 
         default:
             return state;

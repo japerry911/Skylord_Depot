@@ -157,3 +157,20 @@ export const authCreateOrder = (user_id, total_price, items) => {
         );
     };
 };
+
+export const authSuccessDestroyOrder = () => {
+    return {
+        type: 'AUTH_SUCCESS_DESTROY_ORDER'
+    };
+};
+
+export const authDestroyOrder = id => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.delete(`/orders/${id}`).then(
+            () => dispatch(authSuccessDestroyOrder()),
+            error => dispatch(authError(error))
+        );
+    };
+};

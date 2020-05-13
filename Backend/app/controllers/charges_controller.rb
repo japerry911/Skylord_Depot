@@ -2,10 +2,9 @@ class ChargesController < ApplicationController
     def create
         Stripe.api_key = Rails.application.credentials.stripe[:stripe_secret_key]
 
-        user_to_be_processed = User.find(order_params[:user_id])
-
+        order = Order.find(order_params[:order_id])
         puts 'HERERERERE'
-        puts user_to_be_processed
+        puts order[:total_price]
         return
 
         Stripe::Charge.create(
@@ -21,6 +20,6 @@ class ChargesController < ApplicationController
     private
 
         def order_params
-            params.require(:order).permit([:user_id, :token])
+            params.require(:order).permit([:order_id, :token])
         end
 end

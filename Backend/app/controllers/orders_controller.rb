@@ -10,12 +10,24 @@ class OrdersController < ApplicationController
             PurchasedItem.create(good: good, quantity: item_object[:quantity], order: @created_order)
         end
 
-        @created_order.update(processed: 'COMPLETED')
-
-        @order_items_to_destroy = OrderItem.find_by(user: user)
-        @order_items_to_destroy.destroy
-
         render json: @created_order, include: { purchased_items: { include: { good: {} }}}
+
+        #@created_order.update(processed: 'READY-FOR-CHARGE')
+
+        #@order_items_to_destroy = OrderItem.find_by(user: user)
+        #@order_items_to_destroy.destroy
+
+        #render json: @created_order, include: { purchased_items: { include: { good: {} }}}
+    end
+
+    def destroy
+        @order_to_destroy = Order.find(params[:id])
+        @purchased_items_to_destroy = PurchasedItem.where("order_id = ?", params[:id])
+
+        @purchased_items_to_destroy.destroy_all
+        @order_to_destroy.destroy
+
+        render status: :ok
     end
 
     private
