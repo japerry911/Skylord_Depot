@@ -1,4 +1,6 @@
+PurchasedItem.destroy_all
 OrderItem.destroy_all
+Order.destroy_all
 User.destroy_all
 Good.destroy_all
 
@@ -131,17 +133,4 @@ Good.create(
     detail_image1: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/540747396_344cde9fda_o-960x540.jpg',
     detail_image2: 'https://skylord-depot.s3.us-east-2.amazonaws.com/Shop/Treats/download+(1).jpeg',
     product_type: 'Treat'
-)
-
-# Order Items
-OrderItem.create(
-    user: test_user,
-    good: good1,
-    quantity: 3
-)
-
-OrderItem.create(
-    user: test_user,
-    good: good2,
-    quantity: 1
 )

@@ -9,13 +9,13 @@ import Button from '@material-ui/core/Button';
 
 const ShowPage = ({ match }) => {
     const [photo, setPhoto] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
     const [quantity, setQuantity] = useState(1);
 
     const dispatch = useDispatch();
     const item = useSelector(state => state.goods.showItem);
     const user = useSelector(state => state.auth.user);
     const authLoading = useSelector(state => state.auth.loading);
+    const goodLoading = useSelector(state => state.goods.loading);
 
     useEffect(() => {
         const imgs = [
@@ -35,14 +35,12 @@ const ShowPage = ({ match }) => {
         const randomInt = Math.floor(Math.random() * imgs.length);
         
         setPhoto(imgs[randomInt]);
+
+        return () => setPhoto(null);
     }, []);
 
     useEffect(() => {
-        dispatch(getGood(match.params.id)).then(
-            () => setIsLoading(false)
-        );
-
-        return () => setIsLoading(true);
+        dispatch(getGood(match.params.id));
     }, [match.params.id, dispatch]);
 
     const handleQuantityChange = event => {
@@ -65,7 +63,7 @@ const ShowPage = ({ match }) => {
 
     return (
         <div className='show-page-main-div'>
-            {isLoading || authLoading
+            {goodLoading || authLoading
             ?
             <div className='spinner-div'>
                 <Spinner />

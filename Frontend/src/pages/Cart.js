@@ -28,7 +28,7 @@ const Cart = ({ history }) => {
         })
 
         dispatch(authCreateOrder(userId, totalPrice, purchaseItems)).then(
-            () => history.push('/order-confirmation')
+            () => history.push('/order-review')
         );
     };
 

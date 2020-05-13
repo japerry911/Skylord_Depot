@@ -157,3 +157,38 @@ export const authCreateOrder = (user_id, total_price, items) => {
         );
     };
 };
+
+export const authSuccessDestroyOrder = () => {
+    return {
+        type: 'AUTH_SUCCESS_DESTROY_ORDER'
+    };
+};
+
+export const authDestroyOrder = id => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.delete(`/orders/${id}`).then(
+            () => dispatch(authSuccessDestroyOrder()),
+            error => dispatch(authError(error))
+        );
+    };
+};
+
+export const authCreatePaymentIntent = () => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.get('/secret').then(
+            response => dispatch(authSuccessCreatePaymentIntent(response.data.client_secret)),
+            error => dispatch(authError(error))
+        );
+    };
+} 
+
+export const authSuccessCreatePaymentIntent = payload => {
+    return {
+        type: 'AUTH_SUCCESS_CREATE_PAYMENT_INTENT',
+        payload
+    };
+};

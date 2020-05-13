@@ -7,6 +7,10 @@ import Footer from './components/Footer';
 import Spinner from './components/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { authIsLoggedIn, authCheckCart } from './redux/actions/authActions';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -42,7 +46,8 @@ const App = () => {
           'https://skylord-depot.s3.us-east-2.amazonaws.com/Random_Photos/photo-1589015745591-29c9d40e7ebb.jpeg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/SignUp/photo-1541952137766-40b2244d0a5b.jpeg',
           'https://skylord-depot.s3.us-east-2.amazonaws.com/SignIn/photo-1588833945832-a888b6a03c2d.jpeg',
-          'https://skylord-depot.s3.us-east-2.amazonaws.com/Cart/photo-1505623776320-7edecf5f0771.jpeg'
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/Cart/photo-1505623776320-7edecf5f0771.jpeg',
+          'https://skylord-depot.s3.us-east-2.amazonaws.com/OrderReview/jasser-gomez-Nxorq1UB6fg-unsplash.jpg'
     ];
 
     cacheImages(imgs);
@@ -79,29 +84,31 @@ const App = () => {
   };
 
   return (
-    <div className='App'>
-      {isLoading || authLoading
-      ?
-      <div className='spinner-div'>
-        <Spinner />
-      </div>
-      :
-      <Fragment>
-        <Toolbar drawerClickHandler={drawerClickHandler} />
-        <SideDrawer open={sideDrawerOpen} />
-        {sideDrawerOpen
+    <Elements stripe={stripePromise}>
+      <div className='App'>
+        {isLoading || authLoading
         ?
-        <Fragment>
-          <Backdrop backdropClickHandler={backdropClickHandler} />
-        </Fragment>
+        <div className='spinner-div'>
+          <Spinner />
+        </div>
         :
-        null}
-        <main className='main-page-content'>
-          <Routes />
-        </main>
-        <Footer />
-      </Fragment>}
-    </div>
+        <Fragment>
+          <Toolbar drawerClickHandler={drawerClickHandler} />
+          <SideDrawer open={sideDrawerOpen} />
+          {sideDrawerOpen
+          ?
+          <Fragment>
+            <Backdrop backdropClickHandler={backdropClickHandler} />
+          </Fragment>
+          :
+          null}
+          <main className='main-page-content'>
+            <Routes />
+          </main>
+          <Footer />
+        </Fragment>}
+      </div>
+    </Elements>
   );
 }
 
