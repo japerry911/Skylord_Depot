@@ -71,24 +71,25 @@ div.order-review-main-div {
         }
 
         .button-div {
-            width: 50%;
+            width: 100%;
+            padding-bottom: 1rem;
+            padding-top: 2rem;
+            height: 12%;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: center;
-            padding-top: 1rem;
-            height: 10%;
 
-            .cancel-btn {
+            .btn {
                 background-color: $primaryOrange;
                 color: #000;
                 width: 30%;
-                font-size: 0.75rem;
+                font-size: 1.00rem;
                 transition: 0.4s ease-in;
                 border: 1pt solid $accentLightGrayText;
-                height: 100%;
+                height: 100px;
             }
 
-            .cancel-btn:hover, .cancel-btn:active {
+            .btn:hover, .btn:active {
                 background-color: $accentLightGrayText;
                 transition: 0.4s ease-out;
                 border: 1pt solid $primaryOrange;

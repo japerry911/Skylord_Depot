@@ -140,9 +140,9 @@ export const authDestroyCartItem = id => {
     };
 };
 
-export const authSuccessCreateOrder = payload => {
+export const authSuccessCreateOrUpdateOrder = payload => {
     return {
-        type: 'AUTH_SUCCESS_CREATE_ORDER',
+        type: 'AUTH_SUCCESS_CREATE_OR_UPDATE_ORDER',
         payload
     };
 };
@@ -152,7 +152,7 @@ export const authCreateOrder = (user_id, total_price, items) => {
         dispatch(authPending());
 
         return railsServer.post('/orders', { new_order: { user_id, total_price, items }}).then(
-            response => dispatch(authSuccessCreateOrder(response.data)),
+            response => dispatch(authSuccessCreateOrUpdateOrder(response.data)),
             error => dispatch(authError(error))
         );
     };
@@ -190,5 +190,16 @@ export const authSuccessCreatePaymentIntent = payload => {
     return {
         type: 'AUTH_SUCCESS_CREATE_PAYMENT_INTENT',
         payload
+    };
+};
+
+export const authUpdateOrderProcess = (id, process) => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.put(`/orders/${id}`, { new_order: { processed: process }}).then(
+            response => dispatch(authSuccessCreateOrUpdateOrder(response.data.updated_order)),
+            error => dispatch(authError(error))
+        );
     };
 };

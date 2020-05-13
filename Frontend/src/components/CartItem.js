@@ -30,7 +30,7 @@ const CartItem = ({ item }) => {
                     Quantity: {item.quantity}
                 </p>
                 <p>
-                    Price: ${item.good.price} x {item.quantity} = ${(item.good.price * item.quantity).toFixed(2)}
+                    Price: ${item.good.price} x {item.quantity} = ${(item.good.price * item.quantity).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </p>
             </div>
             <div className='delete-btn-div'>

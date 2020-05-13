@@ -20,7 +20,7 @@ const authReducer = (state=INITIAL_STATE, action) => {
         case 'AUTH_SUCCESS_STOP_LOADING':
             return { ...state, loading: false };
 
-        case 'AUTH_SUCCESS_CREATE_ORDER':
+        case 'AUTH_SUCCESS_CREATE_OR_UPDATE_ORDER':
             return { ...state, loading: false, order: action.payload };
 
         case 'AUTH_SUCCESS_DESTROY_ORDER': 

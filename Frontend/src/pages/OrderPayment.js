@@ -1,17 +1,45 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import CardSection from '../components/CardSection';
 import Button from '@material-ui/core/Button';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-import { useSelector } from 'react-redux';
-import Spinner from '../components/Spinner';
+import { useSelector, useDispatch } from 'react-redux';
+import HeroHeader from '../components/HeroHeader';
+import Divider from '@material-ui/core/Divider';
+import TextField from '@material-ui/core/TextField';
+import { authDestroyOrder, authUpdateOrderProcess } from '../redux/actions/authActions';
 
-const OrderPayment = () => {
+const OrderPayment = ({ history }) => {
     const [isLoading, setIsLoading] = useState(false);
+    const [validated, setValidated] = useState(false);
+    const [bAddress, setBAddress] = useState('');
+    const [bCity, setBCity] = useState('');
+    const [bState, setBState] = useState('');
+    const [bZipcode, setBZipcode] = useState('');
+    const [sAddress, setSAddress] = useState('');
+    const [sCity, setSCity] = useState('');
+    const [sState, setSState] = useState('');
+    const [sZipcode, setSZipcode] = useState('');
+    
+    const dispatch = useDispatch();
+    const clientSecret = useSelector(state => state.auth.clientSecret);
+    const order = useSelector(state => state.auth.order);
+    const authLoading = useSelector(state => state.auth.loading);
 
     const stripe = useStripe();
     const elements = useElements();
 
-    const clientSecret = useSelector(state => state.auth.clientSecret);
+    useEffect(() => {
+        setValidated(bAddress && bCity && bState && bZipcode && sAddress && sCity && sState && sZipcode);
+    }, [bAddress, bCity, bState, bZipcode, sAddress, sCity, sState, sZipcode]);
+
+    const handleCancel = () => {
+        dispatch(authDestroyOrder(order.id)).then(
+            () => {
+                alert('Order Canceled Successfully.');
+                history.push('/');
+            }
+        );
+    };
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -20,7 +48,7 @@ const OrderPayment = () => {
             return;
         }
 
-        setIsLoading(false);
+        setIsLoading(true);
 
         const result = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -34,32 +62,77 @@ const OrderPayment = () => {
         setIsLoading(false);
 
         if (result.error) {
-            console.log(result.error.message);
+            console.log(result.error);
+            dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-ERROR')).then(
+                () => alert('PAYMENT ERROR')
+            );
         } else {
             if (result.paymentIntent.status === 'succeeded') {
-                alert('SUCCESSFUL');
-                // Update the order in the backend to payment complete or something similar
+                dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-COMPLETED')).then(
+                    () => {
+                        alert('SUCCESSFUL');
+                        history.push('/order-confirmation');
+                    }
+                );
             }
         }
     };
 
     return (
-        <div>
-            {isLoading
-            ?
-            <div className='spinner-div'>
-                <Spinner />
-            </div>
-            :
-            <Fragment>
-                <h1>Order Payment</h1>
+        <div className='order-payment-main-div'>
+            <HeroHeader
+                headerText='Order Payment'
+                imageUrl='https://skylord-depot.s3.us-east-2.amazonaws.com/OrderPayment/jesse-schoff-i2DefZ6PCN0-unsplash.jpg'
+            />
+            <div className='main-content-div'>
+                <h3 className='order-payment-header-h3'>
+                    Order Payment
+                </h3>
+                <Divider className='divider' />
                 <form onSubmit={handleSubmit}>
+                    <div className='form-div'>
+                        <p>
+                            Billing Address
+                        </p>
+                        <TextField label='Address' value={bAddress} onChange={newBAddress => setBAddress(newBAddress.target.value)} />
+                        <TextField label='City' value={bCity} onChange={newBCity => setBCity(newBCity.target.value)} />
+                        <TextField label='State' value={bState} onChange={newBState => setBState(newBState.target.value)} />
+                        <TextField label='Zipcode' value={bZipcode} onChange={newBZipcode => setBZipcode(newBZipcode.target.value)} />
+                    </div>
+                    <div className='form-div'>
+                        <p>
+                            Shipping Information
+                        </p>
+                        <TextField label='Address' value={sAddress} onChange={newSAddress => setSAddress(newSAddress.target.value)} />
+                        <TextField label='City' value={sCity} onChange={newSCity => setSCity(newSCity.target.value)} />
+                        <TextField label='State' value={sState} onChange={newSState => setSState(newSState.target.value)} />
+                        <TextField label='Zipcode' value={sZipcode} onChange={newSZipcode => setSZipcode(newSZipcode.target.value)} />
+                    </div>
+                    <div className='form-div'>
+                        <p>
+                            Payment Information
+                        </p>
+                    </div>
                     <CardSection />
-                    <Button disabled={!stripe} type='submit'>
-                        Confirm Order
-                    </Button>
+                    <Divider className='divider' />
+                    <div className='btn-div'>
+                        <Button className='btn' onClick={handleCancel}>
+                            Cancel Order
+                        </Button>
+                        <Button className='btn' disabled={!stripe || !validated || isLoading || authLoading} type='submit'>
+                            {authLoading || isLoading
+                            ?
+                            <Fragment>
+                                <i className='fa fa-refresh fa-spin' style={{ marginRight: '5px' }} /><span>Processing</span>
+                            </Fragment>
+                            :
+                            <Fragment>
+                                <span>Confirm Order</span>
+                            </Fragment>}
+                        </Button>
+                    </div>
                 </form>
-            </Fragment>}
+            </div>
         </div>
     );
 };

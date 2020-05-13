@@ -52,25 +52,25 @@ const OrderReview = ({ history }) => {
                     <Divider className='divider' />
                     <div className='item-list-div'>
                         <ul>
-                            {order.purchased_items.map(item => {
+                            {order.purchased_items ? order.purchased_items.map(item => {
                                 return (
                                     <li key={item.id}>
                                         <span>{item.good.name}</span>
-                                        <span>${(Number(item.good.price) * item.quantity).toFixed(2)}</span>
+                                        <span>${(Number(item.good.price) * item.quantity).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
                                     </li>
                                 );
-                            })}
+                            }) : null}
                         </ul>
                     </div>
                     <Divider className='divider' />
                     <div className='total-div'>
-                        <span>Total: ${order.total_price}</span>
+                        <span>Total: ${Number(order.total_price).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
                     </div>
                     <div className='button-div'>
-                        <Button onClick={handleCancel} className='cancel-btn'>
+                        <Button onClick={handleCancel} className='btn'>
                             Cancel
                         </Button>
-                        <Button onClick={handleProceed} className='cancel-btn'>
+                        <Button onClick={handleProceed} className='btn'>
                             Proceed to Payment
                         </Button>
                     </div>
