@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { authDestroyOrder } from '../redux/actions/authActions';
+import { authDestroyOrder, authCreatePaymentIntent } from '../redux/actions/authActions';
 import Spinner from '../components/Spinner';
 import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
@@ -17,6 +17,12 @@ const OrderReview = ({ history }) => {
                 alert('Order Canceled Successfully.');
                 history.push('/');
             }
+        );
+    };
+
+    const handleProceed = () => {
+        dispatch(authCreatePaymentIntent()).then(
+            () => history.push('/order-payment')
         );
     };
 
@@ -63,6 +69,9 @@ const OrderReview = ({ history }) => {
                     <div className='button-div'>
                         <Button onClick={handleCancel} className='cancel-btn'>
                             Cancel
+                        </Button>
+                        <Button onClick={handleProceed} className='cancel-btn'>
+                            Proceed to Payment
                         </Button>
                     </div>
                 </div>

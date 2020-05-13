@@ -1,4 +1,4 @@
-const INITIAL_STATE = { user: {}, loggedIn: false, loading: false, error: null, cart: [], order: {} };
+const INITIAL_STATE = { user: {}, loggedIn: false, loading: false, error: null, cart: [], order: {}, clientSecret: null };
 
 const authReducer = (state=INITIAL_STATE, action) => {
     switch (action.type) {
@@ -25,6 +25,9 @@ const authReducer = (state=INITIAL_STATE, action) => {
 
         case 'AUTH_SUCCESS_DESTROY_ORDER': 
             return { ...state, loading: false, order: {} };
+
+        case 'AUTH_SUCCESS_CREATE_PAYMENT_INTENT':
+            return { ...state, loading: false, clientSecret: action.payload };
 
         default:
             return state;

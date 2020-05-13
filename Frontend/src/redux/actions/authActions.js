@@ -174,3 +174,21 @@ export const authDestroyOrder = id => {
         );
     };
 };
+
+export const authCreatePaymentIntent = () => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.get('/secret').then(
+            response => dispatch(authSuccessCreatePaymentIntent(response.data.client_secret)),
+            error => dispatch(authError(error))
+        );
+    };
+} 
+
+export const authSuccessCreatePaymentIntent = payload => {
+    return {
+        type: 'AUTH_SUCCESS_CREATE_PAYMENT_INTENT',
+        payload
+    };
+};
