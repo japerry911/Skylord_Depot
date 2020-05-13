@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :destroy]
   delete :logout, to: 'sessions#logout'
   get :logged_in, to: 'sessions#logged_in'
+  get :secret, to: 'charges#secret'
 end

@@ -7,6 +7,10 @@ import Footer from './components/Footer';
 import Spinner from './components/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { authIsLoggedIn, authCheckCart } from './redux/actions/authActions';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -80,29 +84,31 @@ const App = () => {
   };
 
   return (
-    <div className='App'>
-      {isLoading || authLoading
-      ?
-      <div className='spinner-div'>
-        <Spinner />
-      </div>
-      :
-      <Fragment>
-        <Toolbar drawerClickHandler={drawerClickHandler} />
-        <SideDrawer open={sideDrawerOpen} />
-        {sideDrawerOpen
+    <Elements stripe={stripePromise}>
+      <div className='App'>
+        {isLoading || authLoading
         ?
-        <Fragment>
-          <Backdrop backdropClickHandler={backdropClickHandler} />
-        </Fragment>
+        <div className='spinner-div'>
+          <Spinner />
+        </div>
         :
-        null}
-        <main className='main-page-content'>
-          <Routes />
-        </main>
-        <Footer />
-      </Fragment>}
-    </div>
+        <Fragment>
+          <Toolbar drawerClickHandler={drawerClickHandler} />
+          <SideDrawer open={sideDrawerOpen} />
+          {sideDrawerOpen
+          ?
+          <Fragment>
+            <Backdrop backdropClickHandler={backdropClickHandler} />
+          </Fragment>
+          :
+          null}
+          <main className='main-page-content'>
+            <Routes />
+          </main>
+          <Footer />
+        </Fragment>}
+      </div>
+    </Elements>
   );
 }
 
