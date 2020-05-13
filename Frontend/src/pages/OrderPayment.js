@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import CardSection from '../components/CardSection';
 import Button from '@material-ui/core/Button';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
-import { authDestroyOrder } from '../redux/actions/authActions';
+import { authDestroyOrder, authUpdateOrderProcess } from '../redux/actions/authActions';
 
 const OrderPayment = ({ history }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -21,12 +21,12 @@ const OrderPayment = ({ history }) => {
     const [sZipcode, setSZipcode] = useState('');
     
     const dispatch = useDispatch();
+    const clientSecret = useSelector(state => state.auth.clientSecret);
+    const order = useSelector(state => state.auth.order);
+    const authLoading = useSelector(state => state.auth.loading);
 
     const stripe = useStripe();
     const elements = useElements();
-
-    const clientSecret = useSelector(state => state.auth.clientSecret);
-    const order = useSelector(state => state.auth.order);
 
     useEffect(() => {
         setValidated(bAddress && bCity && bState && bZipcode && sAddress && sCity && sState && sZipcode);
@@ -48,7 +48,7 @@ const OrderPayment = ({ history }) => {
             return;
         }
 
-        setIsLoading(false);
+        setIsLoading(true);
 
         const result = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -62,11 +62,18 @@ const OrderPayment = ({ history }) => {
         setIsLoading(false);
 
         if (result.error) {
-            console.log(result.error.message);
+            console.log(result.error);
+            dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-ERROR')).then(
+                () => alert('PAYMENT ERROR')
+            );
         } else {
             if (result.paymentIntent.status === 'succeeded') {
-                alert('SUCCESSFUL');
-                // Update the order in the backend to payment complete or something similar
+                dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-COMPLETED')).then(
+                    () => {
+                        alert('SUCCESSFUL');
+                        history.push('/order-confirmation');
+                    }
+                );
             }
         }
     };
@@ -112,8 +119,16 @@ const OrderPayment = ({ history }) => {
                         <Button className='btn' onClick={handleCancel}>
                             Cancel Order
                         </Button>
-                        <Button className='btn' disabled={!stripe || !validated} type='submit'>
-                            Confirm Order
+                        <Button className='btn' disabled={!stripe || !validated || isLoading || authLoading} type='submit'>
+                            {authLoading || isLoading
+                            ?
+                            <Fragment>
+                                <i className='fa fa-refresh fa-spin' style={{ marginRight: '5px' }} /><span>Processing</span>
+                            </Fragment>
+                            :
+                            <Fragment>
+                                <span>Confirm Order</span>
+                            </Fragment>}
                         </Button>
                     </div>
                 </form>
