@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
-import { authDestroyOrder, authUpdateOrderProcess } from '../redux/actions/authActions';
+import { authDestroyOrder, authUpdateOrderProcess, authClearCart } from '../redux/actions/authActions';
 
 const OrderPayment = ({ history }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -24,6 +24,7 @@ const OrderPayment = ({ history }) => {
     const clientSecret = useSelector(state => state.auth.clientSecret);
     const order = useSelector(state => state.auth.order);
     const authLoading = useSelector(state => state.auth.loading);
+    const userId = useSelector(state => state.auth.user.id);
 
     const stripe = useStripe();
     const elements = useElements();
@@ -58,22 +59,20 @@ const OrderPayment = ({ history }) => {
                 }
             }
         });
-        
+
         setIsLoading(false);
 
         if (result.error) {
             console.log(result.error);
-            dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-ERROR')).then(
-                () => alert('PAYMENT ERROR')
-            );
+            await dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-ERROR'));
+            alert('PAYMENT ERROR');
         } else {
             if (result.paymentIntent.status === 'succeeded') {
-                dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-COMPLETED')).then(
-                    () => {
-                        alert('SUCCESSFUL');
-                        history.push('/order-confirmation');
-                    }
-                );
+                await dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-COMPLETED'));
+                await dispatch(authClearCart(userId));
+                
+                alert('SUCCESSFUL');
+                history.push('/order-confirmation');
             }
         }
     };

@@ -26,6 +26,14 @@ class OrderItemsController < ApplicationController
         render status: :ok
     end
 
+    def destroy_all
+        order_items_to_destroy = OrderItem.where('user_id = ?', params[:id])
+
+        order_items_to_destroy.destroy_all
+
+        render status: :ok
+    end
+
     private
 
         def order_item_params
