@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '../redux/actions/authActions';
 import Spinner from '../components/Spinner';
+import { handleOpen } from '../redux/actions/toastsActions';
 
 const SignIn = ({ history }) => {
     const [validated, setValidated] = useState(false);
@@ -27,9 +28,10 @@ const SignIn = ({ history }) => {
         dispatch(authSignIn(username, password)).then(
             authed => {
                 if (authed) {
+                    dispatch(handleOpen({ type: 'success', message: 'Successfully logged in.' }));
                     history.push('/');
                 } else {
-                    alert('Incorrect Credentials.');
+                    dispatch(handleOpen({ type: 'error', message: 'Incorrect credentials.' }));
                 }
             }
         );
