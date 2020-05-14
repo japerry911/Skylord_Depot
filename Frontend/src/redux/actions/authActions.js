@@ -198,7 +198,7 @@ export const authUpdateOrderProcess = (id, process) => {
         dispatch(authPending());
 
         return railsServer.put(`/orders/${id}`, { new_order: { processed: process }}).then(
-            response => dispatch(authSuccessCreateOrUpdateOrder(response.data.updated_order)),
+            response => dispatch(authSuccessCreateOrUpdateOrder(response.data)),
             error => dispatch(authError(error))
         );
     };
