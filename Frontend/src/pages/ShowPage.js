@@ -6,6 +6,7 @@ import { getGood } from '../redux/actions/goodsActions';
 import { authAddToCart, authCheckCart } from '../redux/actions/authActions';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { handleOpen } from '../redux/actions/toastsActions';
 
 const ShowPage = ({ match }) => {
     const [photo, setPhoto] = useState(null);
@@ -55,7 +56,7 @@ const ShowPage = ({ match }) => {
         dispatch(authAddToCart(user.id, item.id, quantity)).then(
             () => {
                 dispatch(authCheckCart(user.id)).then(
-                    () => alert('Item Added to Cart')
+                    () => dispatch(handleOpen({ type: 'success', message: `${item.name} added to your cart!` }))
                 );
             }
         );

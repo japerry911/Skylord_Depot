@@ -6,7 +6,7 @@ export const handleOpen = payload => {
 };
 
 export const handleClose = (event, reason) => {
-    if (reason === 'clickaway') return;
+    if (reason === 'clickaway') return { type: 'DEFAULT' };
 
     return {
         type: 'HANDLE_CLOSE'

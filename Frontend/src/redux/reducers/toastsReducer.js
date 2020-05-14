@@ -1,4 +1,4 @@
-const INITIAL_STATE = { open: true, type: 'success', message: '' }
+const INITIAL_STATE = { open: false, type: 'success', message: '' }
 
 const toastsReducer = (state=INITIAL_STATE, action) => {
     switch (action.type) {
