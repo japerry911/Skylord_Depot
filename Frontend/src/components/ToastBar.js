@@ -14,12 +14,17 @@ const ToastBar = () => {
     const dispatch = useDispatch();
     const open = useSelector(state => state.toasts.open);
     const type = useSelector(state => state.toasts.type);
+    const message = useSelector(state => state.toasts.message);
+
+    const handleClick = (event, reason) => {
+        dispatch(handleClose(event, reason));
+    }
 
     return (
         <Fragment>
-            <Snackbar open={open}>
-                <Alert severity={type}>
-                    TEST ALERT
+            <Snackbar open={open} onClose={handleClick}>
+                <Alert severity={type} onClose={handleClick}>
+                    {message}
                 </Alert>
             </Snackbar>
         </Fragment>

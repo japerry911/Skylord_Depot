@@ -1,12 +1,12 @@
-const INITIAL_STATE = { open: true, type: 'success' }
+const INITIAL_STATE = { open: true, type: 'success', message: '' }
 
 const toastsReducer = (state=INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'HANDLE_CLICK':
-            return { open: true, type: 'success' };
+        case 'HANDLE_OPEN':
+            return { open: true, type: action.payload.type, message: action.payload.message };
 
         case 'HANDLE_CLOSE':
-            return { open: false, type: null };
+            return { ...state, open: false };
 
         default:
             return state;

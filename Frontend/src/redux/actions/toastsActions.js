@@ -1,6 +1,7 @@
-export const handleClick = () => {
+export const handleOpen = payload => {
     return {
-        type: 'HANDLE_CLICK'
+        type: 'HANDLE_OPEN',
+        payload
     };
 };
 
