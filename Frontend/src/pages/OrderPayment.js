@@ -7,6 +7,7 @@ import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 import { authDestroyOrder, authUpdateOrderProcess, authClearCart } from '../redux/actions/authActions';
+import { handleOpen } from '../redux/actions/toastsActions';
 
 const OrderPayment = ({ history }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +37,7 @@ const OrderPayment = ({ history }) => {
     const handleCancel = () => {
         dispatch(authDestroyOrder(order.id)).then(
             () => {
-                alert('Order Canceled Successfully.');
+                dispatch(handleOpen({ type: 'success', message: 'Order successfully canceled.'}));
                 history.push('/');
             }
         );
@@ -64,14 +65,13 @@ const OrderPayment = ({ history }) => {
 
         if (result.error) {
             console.log(result.error);
-            await dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-ERROR'));
-            alert('PAYMENT ERROR');
+            dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-ERROR'));
+            dispatch(handleOpen({ type: 'error', message: `Order Error: ${result.error.message}.`}));
         } else {
             if (result.paymentIntent.status === 'succeeded') {
-                await dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-COMPLETED'));
-                await dispatch(authClearCart(userId));
-                
-                alert('SUCCESSFUL');
+                dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-COMPLETED'));
+                dispatch(authClearCart(userId));
+                dispatch(handleOpen({ type: 'success', message: 'Order successfully processed.'}));
                 history.push('/order-confirmation');
             }
         }

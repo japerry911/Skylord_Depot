@@ -5,6 +5,7 @@ import { authDestroyOrder, authCreatePaymentIntent } from '../redux/actions/auth
 import Spinner from '../components/Spinner';
 import HeroHeader from '../components/HeroHeader';
 import Divider from '@material-ui/core/Divider';
+import { handleOpen } from '../redux/actions/toastsActions';
 
 const OrderReview = ({ history }) => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const OrderReview = ({ history }) => {
     const handleCancel = () => {
         dispatch(authDestroyOrder(order.id)).then(
             () => {
-                alert('Order Canceled Successfully.');
+                dispatch(handleOpen({ type: 'success', message: 'Order successfully canceled.'}));
                 history.push('/');
             }
         );
