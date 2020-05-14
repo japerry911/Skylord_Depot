@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
 
         @order_to_update.update(processed: order_params[:processed])
 
-        render json: { updated_order: @order_to_update }
+        render json: @order_to_update, include: { purchased_items: { include: { good: {} }}}
     end
 
     private
