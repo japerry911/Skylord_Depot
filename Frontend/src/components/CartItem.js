@@ -3,14 +3,18 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { authDestroyCartItem, authCheckCart } from '../redux/actions/authActions';
+import { handleOpen } from '../redux/actions/toastsActions';
 
 const CartItem = ({ item }) => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state.auth.user.id);
-    
+
     const handleDelete = () => {
         dispatch(authDestroyCartItem(item.id)).then(
-            () => dispatch(authCheckCart(userId))
+            () => {
+                dispatch(authCheckCart(userId));
+                dispatch(handleOpen({ type: 'success', message: `${item.good.name} successfully removed from cart.` }));
+            }
         );
     };
 
