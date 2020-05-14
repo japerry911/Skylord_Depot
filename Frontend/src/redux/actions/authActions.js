@@ -175,11 +175,11 @@ export const authDestroyOrder = id => {
     };
 };
 
-export const authCreatePaymentIntent = () => {
+export const authCreatePaymentIntent = id => {
     return dispatch => {
         dispatch(authPending());
 
-        return railsServer.get('/secret').then(
+        return railsServer.get(`/secret/${id}`).then(
             response => dispatch(authSuccessCreatePaymentIntent(response.data.client_secret)),
             error => dispatch(authError(error))
         );

@@ -22,7 +22,7 @@ const OrderReview = ({ history }) => {
     };
 
     const handleProceed = () => {
-        dispatch(authCreatePaymentIntent()).then(
+        dispatch(authCreatePaymentIntent(order.id)).then(
             () => history.push('/order-payment')
         );
     };

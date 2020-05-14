@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   delete '/clear_cart/:id', to: 'order_items#destroy_all'
   delete :logout, to: 'sessions#logout'
   get :logged_in, to: 'sessions#logged_in'
-  get :secret, to: 'charges#secret'
+  get '/secret/:id', to: 'charges#secret'
 end

@@ -25,7 +25,7 @@ const OrderPayment = ({ history }) => {
     const clientSecret = useSelector(state => state.auth.clientSecret);
     const order = useSelector(state => state.auth.order);
     const authLoading = useSelector(state => state.auth.loading);
-    const userId = useSelector(state => state.auth.user.id);
+    const user = useSelector(state => state.auth.user);
 
     const stripe = useStripe();
     const elements = useElements();
@@ -56,7 +56,13 @@ const OrderPayment = ({ history }) => {
             payment_method: {
                 card: elements.getElement(CardElement),
                 billing_details: {
-                    name: 'TEST_NAME'
+                    name: user.username,
+                    address: {
+                        city: sCity,
+                        country: 'US',
+                        line1: sAddress,
+                        state: sState
+                    }
                 }
             }
         });
@@ -66,11 +72,11 @@ const OrderPayment = ({ history }) => {
         if (result.error) {
             console.log(result.error);
             dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-ERROR'));
-            dispatch(handleOpen({ type: 'error', message: `Order Error: ${result.error.message}.`}));
+            dispatch(handleOpen({ type: 'error', message: `Order Error: ${result.error.message}`}));
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 dispatch(authUpdateOrderProcess(order.id, 'PAYMENT-COMPLETED'));
-                dispatch(authClearCart(userId));
+                dispatch(authClearCart(user.id));
                 dispatch(handleOpen({ type: 'success', message: 'Order successfully processed.'}));
                 history.push('/order-confirmation');
             }
