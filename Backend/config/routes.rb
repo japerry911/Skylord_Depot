@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   delete :logout, to: 'sessions#logout'
   get :logged_in, to: 'sessions#logged_in'
   get '/secret/:id', to: 'charges#secret'
+  post '/contact-send-email', to: 'contact#send_email'
 end

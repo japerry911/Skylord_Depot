@@ -14,11 +14,15 @@ const Contact = () => {
         setValidated(email && subject && message);
     }, [email, subject, message]);
 
+    const handleSubmit = event => {
+        event.preventDefault();
+    };
+
     return (
         <div className='contact-main-div'>
             <div className='content-div'>
                 <h3 className='contact-header-h3'>Contact Sky & Jack!</h3>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h4 className='contact-header-h4'>Contact Form</h4>
                     <Divider className='divider' />
                     <TextField 
@@ -40,7 +44,7 @@ const Contact = () => {
                         onChange={newMessage => setMessage(newMessage.target.value)} 
                     />
                     <Divider className='divider' />
-                    <Button className='btn'>
+                    <Button className='btn' disabled={!validated} type='submit'>
                         Submit Message
                     </Button>
                 </form>
