@@ -4,4 +4,67 @@ div.contact-main-div {
     width: 100%;
     background-position: 10% 20%;
     background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+
+    .content-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        width: 40%;
+        margin-right: 3rem;
+
+        .contact-header-h3 {
+            color: $accentLightWhite;
+            font-family: 'Avenir-Medium';
+            font-size: 1.5rem;
+            align-self: center;
+        }
+
+        form {
+            width: 100%;
+            height: 50%;
+            margin-top: 3rem;
+            padding: 3rem;
+            background-color: $accentLightOrange;
+            border-radius: 12pt;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            .divider {
+                width: 100%;
+                height: 2px;
+            }
+
+            .contact-input {
+                width: 50%;
+            }
+
+            .contact-textarea {
+                width: 75%;
+                padding-left: 2.5px;
+            }
+
+            .btn {
+                background-color: $primaryOrange;
+                color: #000;
+                width: 30%;
+                font-size: 1rem;
+                transition: 0.4s ease-in;
+                border: 1pt solid $accentLightGrayText;
+                height: 80px;
+            }
+
+            .btn:active, .btn:hover {
+                background-color: $accentLightGrayText;
+                transition: 0.4s ease-out;
+                border: 1pt solid $primaryOrange;
+                color: $primaryOrange;
+            }
+        }
+    }
 }
