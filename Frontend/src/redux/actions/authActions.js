@@ -203,3 +203,20 @@ export const authUpdateOrderProcess = (id, process) => {
         );
     };
 };
+
+export const authClearCart = id => {
+    return dispatch => {
+        dispatch(authPending());
+
+        return railsServer.delete(`/clear_cart/${id}`).then(
+            () => dispatch(authSuccessClearCart()),
+            error => dispatch(authError(error))
+        );
+    };
+};
+
+export const authSuccessClearCart = () => {
+    return {
+        type: 'AUTH_SUCCESS_CLEAR_CART'
+    };
+};

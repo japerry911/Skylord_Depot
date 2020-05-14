@@ -29,6 +29,9 @@ const authReducer = (state=INITIAL_STATE, action) => {
         case 'AUTH_SUCCESS_CREATE_PAYMENT_INTENT':
             return { ...state, loading: false, clientSecret: action.payload };
 
+        case 'AUTH_SUCCESS_CLEAR_CART':
+            return { ...state, loading: false, cart: [], clientSecret: null };
+
         default:
             return state;
     }
