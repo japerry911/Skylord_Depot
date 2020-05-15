@@ -101,3 +101,15 @@ div.order-confirmation-main-div {
         }
     }
 }
+
+/*
+-Media Queries-
+*/
+
+@media screen and (min-width: 650px) and (max-width: 768px) {
+    div.order-confirmation-main-div {
+        .thank-you-div {
+            
+        }
+    }
+}
