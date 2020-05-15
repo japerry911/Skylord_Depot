@@ -52,21 +52,22 @@ div.sign-in-main-div {
                 justify-content: center;
                 height: 20%;
                 width: 100%;
+                align-items: center;
 
                 .sign-in-btn {
                     background-color: $primaryOrange;
                     color: #000;
                     margin: 1rem;
-                    width: 40%;
+                    width: 16rem;
                     font-size: 0.75rem;
                     transition: 0.4s ease-in;
                     border: 1pt solid $accentLightGrayText;
-                    height: 60%;
+                    height: 6rem;
                 }
 
                 a {
-                    width: 40%;
-                    height: 60%;
+                    width: 16rem;
+                    height: 6rem;
                     margin: 1rem;
                     text-decoration: none;
 
@@ -98,6 +99,33 @@ div.sign-in-main-div {
 -Media Queries-
 */
 
+@media screen and (min-width: 650px) and (max-width: 768px) {
+    div.sign-in-main-div {
+        .content-div {
+            padding: 3rem;
+            width: 100%;
+
+            form {
+                .logo-img {
+                    width: 50%;
+                }
+
+                .btns-div {
+                    .sign-in-btn {
+                        width: 10rem;
+                        height: 4rem;
+                    }
+
+                    a {
+                        width: 10rem;
+                        height: 4rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 649px) {
     div.sign-in-main-div {
         .content-div {
@@ -106,18 +134,31 @@ div.sign-in-main-div {
             height: 60%;
 
             form {
-                height: 80%;
-
                 .logo-img {
                     width: 60%;
                 }
 
+                .textfield-input {
+                    label {
+                        font-size: .8rem;
+                    }
+                }
+
                 .btns-div {
+                    height: 30%;
+
                     .sign-in-btn {
                         font-size: 0.5rem;
+                        width: 10rem;
+                        height: 3rem;
+                        margin: 0.5rem
                     }
 
                     a {
+                        width: 10rem;
+                        height: 3rem;
+                        margin: 0.5rem;
+
                         .create-act-btn {          
                             span {
                                 font-size: 0.5rem;
