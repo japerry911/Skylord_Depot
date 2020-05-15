@@ -53,7 +53,7 @@ const App = () => {
     setSideDrawerOpen(!sideDrawerOpen);
   };
 
-  const backdropClickHandler = () => {
+  const closeSideDrawer = () => {
     setSideDrawerOpen(false);
   };
 
@@ -68,11 +68,11 @@ const App = () => {
         :
         <Fragment>
           <Toolbar drawerClickHandler={drawerClickHandler} />
-          <SideDrawer open={sideDrawerOpen} />
+          <SideDrawer open={sideDrawerOpen} closeSideDrawer={closeSideDrawer} />
           {sideDrawerOpen
           ?
           <Fragment>
-            <Backdrop backdropClickHandler={backdropClickHandler} />
+            <Backdrop backdropClickHandler={closeSideDrawer} />
           </Fragment>
           :
           null}

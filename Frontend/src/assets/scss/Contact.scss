@@ -6,6 +6,7 @@ div.contact-main-div {
     background-size: cover;
     display: flex;
     justify-content: flex-end;
+    background-attachment: fixed;
 
     .content-div {
         display: flex;
@@ -64,6 +65,56 @@ div.contact-main-div {
                 transition: 0.4s ease-out;
                 border: 1pt solid $primaryOrange;
                 color: $primaryOrange;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 768px) {
+    div.contact-main-div {
+
+        .content-div {
+            width: 50%;
+            align-items: center;
+            margin-right: 1rem;
+
+            .contact-header-h3 {
+                font-size: 2rem;
+            }
+
+            form {
+                
+                .btn {
+                    width: 50%;
+                    height: 70px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    div.contact-main-div {
+        justify-content: center;
+
+        .content-div {
+            width: 90%;
+            align-items: center;
+            margin-right: 0;
+
+            .contact-header-h3 {
+                font-size: 1.5rem;
+            }
+
+            form {
+                margin-top: 1.5rem;
+                height: 80%;
+
+                .btn {
+                    width: 60%;
+                    height: 60px;
+                    font-size: 0.75rem;
+                }
             }
         }
     }
