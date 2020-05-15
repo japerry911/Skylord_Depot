@@ -51,8 +51,14 @@ div.main-div-home {
 @media screen and (min-width: 650px) and (max-width: 768px) {
     div.main-div-home {
         .title-content-div {
+            margin-left: 0;
+
+            .logo {
+                width: 55%;
+            }
 
             a {
+                width: 55%;
 
                 button {
                     height: 4rem;
@@ -67,12 +73,14 @@ div.main-div-home {
 @media screen and (max-width: 649px) {
     div.main-div-home {
         .title-content-div {
+            margin-left: 0;
+
             .logo {
-                width: 39%;
+                width: 65%;
             }
 
             a {
-                width: 39%;
+                width: 65%;
 
                 button {
                     height: 2rem;
