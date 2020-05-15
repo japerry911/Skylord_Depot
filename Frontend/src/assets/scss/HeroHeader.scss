@@ -12,3 +12,29 @@ div.hero-header-main-div {
         margin-left: 5rem;
     }
 }
+
+/*
+-Media Queries-
+*/
+
+@media screen and (min-width: 650px) and (max-width: 768px) {
+    div.hero-header-main-div {
+        height: 40rem;
+
+        .hero-header-text-h6 {
+            font-size: 3rem;
+            margin-left: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    div.hero-header-main-div {
+        height: 20rem;
+
+        .hero-header-text-h6 {
+            font-size: 1.5rem;
+            margin-left: 1rem;
+        }
+    }
+}

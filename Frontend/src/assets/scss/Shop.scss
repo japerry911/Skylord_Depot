@@ -6,6 +6,7 @@ div.main-div-shop {
     width: 100%;
     display: flex;
     justify-content: center;
+    background-attachment: fixed;
 
     .tiles-div {
         display: flex;
@@ -87,6 +88,32 @@ div.main-div-shop {
                 background-size: cover;
                 background-position: center;
                 opacity: .75;
+            }
+        }
+    }
+}
+
+/*
+-Media Queries-
+*/
+
+@media screen and (min-width: 650px) and (max-width: 768px) {
+    div.main-div-shop {
+        .tiles-div {
+            width: 90%;
+            justify-content: space-evenly;
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    div.main-div-shop {
+        .tiles-div {
+            width: 90%;
+            justify-content: space-evenly;
+
+            h6 {
+                font-size: 1.75rem;
             }
         }
     }

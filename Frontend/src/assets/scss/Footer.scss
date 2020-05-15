@@ -2,6 +2,8 @@ footer {
     background-color: $primaryOrange;
     min-height: 120px;
     width: 100%;
+    display: flex;
+    align-items: center;
 
     .footer-div {
         width: 100%;
@@ -96,13 +98,61 @@ footer {
 @media screen and (min-width: 650px) and (max-width: 768px) {
     footer {
         .footer-div {
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
             padding: 1rem 0;
+
+            .follow-us-div {
+                width: 60%;
+            }
 
             .logo-div {
                 a {
                     width: 30%;
+                }
+            }
+
+            .pages-div {
+                width: 100%;
+
+                ul {
+
+                    li {
+                        font-size: 1.25rem;
+                        
+                        a {
+                            padding: 1rem 0;
+                        }
+                    }
+
+                    .logout-list-item {
+                        padding: 1rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    footer {
+        .footer-div {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 1rem 0;
+
+            .follow-us-div {
+                width: 80%;
+
+                .social-icon {
+                    height: 30px !important;
+                    width: 30px !important;
+                }
+            }
+
+            .logo-div {
+                a {
+                    width: 40%;
                 }
             }
 

@@ -99,19 +99,19 @@ const OrderPayment = ({ history }) => {
                         <p>
                             Billing Address
                         </p>
-                        <TextField label='Address' value={bAddress} onChange={newBAddress => setBAddress(newBAddress.target.value)} />
-                        <TextField label='City' value={bCity} onChange={newBCity => setBCity(newBCity.target.value)} />
-                        <TextField label='State' value={bState} onChange={newBState => setBState(newBState.target.value)} />
-                        <TextField label='Zipcode' value={bZipcode} onChange={newBZipcode => setBZipcode(newBZipcode.target.value)} />
+                        <TextField label='Address' value={bAddress} onChange={newBAddress => setBAddress(newBAddress.target.value)} className='textfield-input' />
+                        <TextField label='City' value={bCity} onChange={newBCity => setBCity(newBCity.target.value)} className='textfield-input' />
+                        <TextField label='State' value={bState} onChange={newBState => setBState(newBState.target.value)} className='textfield-input' />
+                        <TextField label='Zipcode' value={bZipcode} onChange={newBZipcode => setBZipcode(newBZipcode.target.value)} className='textfield-input' />
                     </div>
                     <div className='form-div'>
                         <p>
                             Shipping Information
                         </p>
-                        <TextField label='Address' value={sAddress} onChange={newSAddress => setSAddress(newSAddress.target.value)} />
-                        <TextField label='City' value={sCity} onChange={newSCity => setSCity(newSCity.target.value)} />
-                        <TextField label='State' value={sState} onChange={newSState => setSState(newSState.target.value)} />
-                        <TextField label='Zipcode' value={sZipcode} onChange={newSZipcode => setSZipcode(newSZipcode.target.value)} />
+                        <TextField label='Address' value={sAddress} onChange={newSAddress => setSAddress(newSAddress.target.value)} className='textfield-input' />
+                        <TextField label='City' value={sCity} onChange={newSCity => setSCity(newSCity.target.value)} className='textfield-input' />
+                        <TextField label='State' value={sState} onChange={newSState => setSState(newSState.target.value)} className='textfield-input' />
+                        <TextField label='Zipcode' value={sZipcode} onChange={newSZipcode => setSZipcode(newSZipcode.target.value)} className='textfield-input' />
                     </div>
                     <div className='form-div'>
                         <p>

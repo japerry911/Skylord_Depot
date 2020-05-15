@@ -7,10 +7,11 @@ div.main-about-div {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background-attachment: fixed;
 
     .content-div {
         width: 40%;
-        padding-right: 9rem;
+        padding-right: 5rem;
         color: $accentLightWhite;
 
         h3 {
@@ -34,6 +35,44 @@ div.main-about-div {
             img {
                 height: auto;
                 width: 60%;
+            }
+        }
+    }
+}
+
+/*
+-Media Queries-
+*/
+
+@media screen and (min-width: 650px) and (max-width: 768px) {
+    div.main-about-div {
+        .content-div {
+            padding-right: 3rem;
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    div.main-about-div {
+        .content-div {
+            padding-right: 0.5rem;
+            padding-left: 1.25rem;
+            padding-top: 1rem;
+
+            h3 {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 0.65rem;
             }
         }
     }

@@ -5,6 +5,7 @@ div.main-div-home {
     background-size: cover;
     display: flex;
     align-items: center;
+    background-attachment: fixed;
 
     .title-content-div {
         height: 70%;
@@ -16,7 +17,7 @@ div.main-div-home {
 
         .logo {
             height: auto;
-            width: 43%;
+            width: 40%;
         }
 
         a {
@@ -43,6 +44,55 @@ div.main-div-home {
                 cursor: pointer;
                 transition: .35s ease-out;
            }
+        }
+    }
+}
+
+/*
+-Media Queries-
+*/
+
+@media screen and (min-width: 650px) and (max-width: 768px) {
+    div.main-div-home {
+        .title-content-div {
+            margin-left: 0;
+
+            .logo {
+                width: 55%;
+            }
+
+            a {
+                width: 55%;
+
+                button {
+                    height: 4rem;
+                    width: 11rem;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    div.main-div-home {
+        .title-content-div {
+            margin-left: 0;
+
+            .logo {
+                width: 65%;
+            }
+
+            a {
+                width: 65%;
+
+                button {
+                    height: 2rem;
+                    width: 6rem;
+                    font-size: .5rem;
+                    border-radius: 6pt;
+                }
+            }
         }
     }
 }

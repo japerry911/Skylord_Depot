@@ -6,7 +6,7 @@ div.order-confirmation-main-div {
     background-color: $accentLightGray;
 
     .thank-you-div {
-        width: 60%;
+        width: 80%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -29,7 +29,7 @@ div.order-confirmation-main-div {
 
         img {
             height: auto;
-            width: 30%;
+            width: 20%;
             border-radius: 12pt;
             margin-bottom: 1rem;
         }
@@ -48,7 +48,7 @@ div.order-confirmation-main-div {
         justify-content: space-between;
 
         .logo-img {
-            width: 20%;
+            width: 40%;
             padding-bottom: 1rem;
             height: auto;
         }
@@ -97,6 +97,65 @@ div.order-confirmation-main-div {
                 font-family: 'Avenir-Medium';
                 font-weight: bold;
                 font-size: 1.25rem;
+                text-align: center;
+            }
+        }
+    }
+}
+
+/*
+-Media Queries-
+*/
+
+@media screen and (max-width: 649px) {
+    div.order-confirmation-main-div {
+        .thank-you-div {
+            width: 90%;
+
+            .message-p, .from-p {
+                font-size: 0.9rem;
+            }
+
+            img {
+                width: 50%;
+            }
+        }
+
+        .main-content-div {
+            width: 90%;
+            padding: 1rem;
+
+            .logo-img {
+                width: 60%;
+            }
+
+            .order-confirmation-header-h3 {
+                font-size: 1.25rem;
+            }
+
+            .item-list-div {
+                width: 100%;
+                
+                ul {
+                    li {
+                        flex-direction: column;
+
+                        span {
+                            padding: 0;
+                            font-size: 0.8rem;
+                        }
+
+                        span:last-child {
+                            padding-bottom: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .total-div {
+                span {
+                    font-size: 1rem;
+                }
             }
         }
     }
