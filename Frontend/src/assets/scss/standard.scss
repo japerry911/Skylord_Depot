@@ -24,7 +24,9 @@ html, body, #root, .App {
 
 .spinner-div {
     display: flex;
-    justify-content: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
     align-items: center;
-    background-color: $accentLightWhite;
+    background-color: $accentLightGray;
 }
