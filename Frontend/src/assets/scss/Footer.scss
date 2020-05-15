@@ -118,6 +118,7 @@ footer {
                 ul {
 
                     li {
+                        font-size: 1.25rem;
                         
                         a {
                             padding: 1rem 0;
@@ -142,6 +143,11 @@ footer {
 
             .follow-us-div {
                 width: 80%;
+
+                .social-icon {
+                    height: 30px !important;
+                    width: 30px !important;
+                }
             }
 
             .logo-div {
