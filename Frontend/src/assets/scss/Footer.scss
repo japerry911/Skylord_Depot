@@ -98,13 +98,55 @@ footer {
 @media screen and (min-width: 650px) and (max-width: 768px) {
     footer {
         .footer-div {
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
             padding: 1rem 0;
+
+            .follow-us-div {
+                width: 60%;
+            }
 
             .logo-div {
                 a {
                     width: 30%;
+                }
+            }
+
+            .pages-div {
+                width: 100%;
+
+                ul {
+
+                    li {
+                        
+                        a {
+                            padding: 1rem 0;
+                        }
+                    }
+
+                    .logout-list-item {
+                        padding: 1rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    footer {
+        .footer-div {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 1rem 0;
+
+            .follow-us-div {
+                width: 80%;
+            }
+
+            .logo-div {
+                a {
+                    width: 40%;
                 }
             }
 

@@ -9,7 +9,8 @@ div.sign-in-main-div {
         display: flex;
         height: 100%;
         padding: 5rem;
-        width: 50%;
+        width: 80%;
+        align-items: center;
 
         form {
             background-color: $accentLightGray;
@@ -67,15 +68,19 @@ div.sign-in-main-div {
                     width: 40%;
                     height: 60%;
                     margin: 1rem;
+                    text-decoration: none;
 
                     .create-act-btn {
                         background-color: $accentLightGray;
                         color: #000;
                         width: 100%;
                         height: 100%;
-                        font-size: 0.75rem;
                         transition: 0.4s ease-in;
                         border: 1pt solid $accentLightGrayText;
+
+                        span {
+                            font-size: 0.75rem;
+                        }
                     }
                 }
 
@@ -83,6 +88,42 @@ div.sign-in-main-div {
                     background-color: $accentLightGrayText;
                     transition: 0.4s ease-out;
                     border: 1pt solid $primaryOrange;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    div.sign-in-main-div {
+
+        .content-div {
+            padding: 2rem;
+            width: 100%;
+            height: 60%;
+
+            form {
+                height: 80%;
+
+                .logo-img {
+                    width: 60%;
+                }
+
+                .btns-div {
+
+                    .sign-in-btn {
+                        font-size: 0.5rem;
+                    }
+
+                    a {
+
+                        .create-act-btn {
+                            
+                            span {
+                                font-size: 0.5rem;
+                            }
+                        }
+                    }
                 }
             }
         }
