@@ -70,9 +70,12 @@ div.contact-main-div {
     }
 }
 
+/*
+-Media Queries-
+*/
+
 @media screen and (min-width: 650px) and (max-width: 768px) {
     div.contact-main-div {
-
         .content-div {
             width: 50%;
             align-items: center;
@@ -82,8 +85,7 @@ div.contact-main-div {
                 font-size: 2rem;
             }
 
-            form {
-                
+            form {    
                 .btn {
                     width: 50%;
                     height: 70px;

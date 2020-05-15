@@ -40,9 +40,12 @@ div.main-about-div {
     }
 }
 
+/*
+-Media Queries-
+*/
+
 @media screen and (min-width: 650px) and (max-width: 768px) {
     div.main-about-div {
-
         .content-div {
             padding-right: 3rem;
 
@@ -59,7 +62,6 @@ div.main-about-div {
 
 @media screen and (max-width: 649px) {
     div.main-about-div {
-
         .content-div {
             padding-right: 0.5rem;
             padding-left: 1.25rem;

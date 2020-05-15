@@ -94,9 +94,12 @@ div.sign-in-main-div {
     }
 }
 
+/*
+-Media Queries-
+*/
+
 @media screen and (max-width: 649px) {
     div.sign-in-main-div {
-
         .content-div {
             padding: 2rem;
             width: 100%;
@@ -110,15 +113,12 @@ div.sign-in-main-div {
                 }
 
                 .btns-div {
-
                     .sign-in-btn {
                         font-size: 0.5rem;
                     }
 
                     a {
-
-                        .create-act-btn {
-                            
+                        .create-act-btn {          
                             span {
                                 font-size: 0.5rem;
                             }
