@@ -49,6 +49,14 @@ const SideDrawer = ({ open, closeSideDrawer }) => {
                     }}>Sign Out</li>
                 </Fragment>
                 }
+                <li>
+                    <Link to='/' onClick={closeSideDrawer}>
+                        <img
+                            alt='Skylord Depot Logo'
+                            src='https://skylord-depot.s3.us-east-2.amazonaws.com/Logos/logo_transparent_background.png'
+                        />
+                    </Link>
+                </li>
             </ul>
         </nav>
     );

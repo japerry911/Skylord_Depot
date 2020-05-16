@@ -21,7 +21,7 @@ const App = () => {
   const dispatch = useDispatch();
   const authLoading = useSelector(state => state.auth.loading);
   const loggedIn = useSelector(state => state.auth.loggedIn);
-  const authId = useSelector(state => state.auth.user.id);
+  const authId = useSelector(state => state.auth.user.id); 
 
   useEffect(() => {
     cacheImages(imgs);
