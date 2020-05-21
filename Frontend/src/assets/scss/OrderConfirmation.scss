@@ -7,9 +7,11 @@ div.order-confirmation-main-div {
 
     .thank-you-div {
         width: 80%;
+        height: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         padding: 3rem;
         background-color: $accentLightOrange;
         margin-top: 3rem;
@@ -37,7 +39,7 @@ div.order-confirmation-main-div {
     
     .main-content-div {
         width: 80%;
-        height: 100%;
+        height: 50%;
         background-color: $accentLightOrange;
         margin: 3rem;
         padding: 3rem;
