@@ -24,6 +24,7 @@ Enjoy!
 - React-Router-DOM -> Utilizes custom made protected routes for authentication navigation experience
 - Use of all Functional Components
 - Use of lots of React Hooks
+- Amazon S3 Bucket for Storage of Images
 
 ### Navigating to the Application
 
