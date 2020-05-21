@@ -76,10 +76,12 @@ div.contact-main-div {
 
 @media screen and (min-width: 650px) and (max-width: 768px) {
     div.contact-main-div {
+        justify-content: center;
+
         .content-div {
             width: 50%;
             align-items: center;
-            margin-right: 1rem;
+            margin-right: 0;
 
             .contact-header-h3 {
                 font-size: 2rem;

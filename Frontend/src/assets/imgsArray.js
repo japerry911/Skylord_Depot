@@ -24,5 +24,6 @@ export const imgs = [
     'https://skylord-depot.s3.us-east-2.amazonaws.com/SignIn/photo-1588833945832-a888b6a03c2d.jpeg',
     'https://skylord-depot.s3.us-east-2.amazonaws.com/Cart/photo-1505623776320-7edecf5f0771.jpeg',
     'https://skylord-depot.s3.us-east-2.amazonaws.com/OrderReview/jasser-gomez-Nxorq1UB6fg-unsplash.jpg',
-    'https://skylord-depot.s3.us-east-2.amazonaws.com/OrderConfirmation/744CC310-352B-4DA0-B40B-45467A63F47B_1_201_a.jpeg'
+    'https://skylord-depot.s3.us-east-2.amazonaws.com/OrderConfirmation/744CC310-352B-4DA0-B40B-45467A63F47B_1_201_a.jpeg',
+    'https://skylord-depot.s3.us-east-2.amazonaws.com/ContactUs/38A024F5-3CCE-42A2-A33E-69D3E8C93FE5_1_105_c.jpeg'
   ];
