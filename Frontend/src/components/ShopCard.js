@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 const ShopCard = ({ item, history, type }) => {
+    console.log(item.price)
     return (
         <div className='card-div' onClick={() => history.push(`/shop/${type}/${item.id}`)}>
             <img
@@ -11,7 +12,7 @@ const ShopCard = ({ item, history, type }) => {
             />
             <h6 className='item-header-h6'>{item.name}</h6>
             <p className='card-description'>{item.description}</p>
-            <p className='card-price'>${item.price}</p>
+            <p className='card-price'>${Number(item.price).toFixed(2).toString()}</p>
         </div>
     );
 };
