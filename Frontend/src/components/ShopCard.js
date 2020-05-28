@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 const ShopCard = ({ item, history, type }) => {
-    console.log(item.price)
     return (
         <div className='card-div' onClick={() => history.push(`/shop/${type}/${item.id}`)}>
             <img
