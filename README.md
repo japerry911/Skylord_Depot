@@ -16,6 +16,7 @@ Enjoy!
 - Ruby on Rails
 - SMTP Gmail Server
 - SCSS/SASS & a little use of Google's Material UI (Toasts)
+- PostgreSQL Database
 - Stripe Payment API
 - Session Token integration
 - Responsiveness on Mobile/Tablet devices
